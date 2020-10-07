@@ -18,6 +18,7 @@ public class DialogueScene1 : MonoBehaviour
     public GameObject ArtChar1;
     public GameObject ArtBG1;
     public GameObject ArtBG2;
+    public GameObject ArtBG3;
     public GameObject Choice1a;
     public GameObject Choice1b;
     public GameObject Choice1c;
@@ -64,23 +65,23 @@ public class DialogueScene1 : MonoBehaviour
         {
             
             dialogue.SetActive(true);
-            Char1name.text = "YOU";
-            Char1speech.text = "I am o happy to be off that bus.";
+            Char1name.text = "NARRATOR";
+            Char1speech.text = "Finally, after a few hours of riding in this bumpy, old bus you've arrived to the beautiful shores of Golden Bay.";
             Char2name.text = "";
             Char2speech.text = "";
         }
         else if (primeInt == 3)
         {
             Char1name.text = "YOU";
-            Char1speech.text = "Wow-- smell that beach air!";
+            Char1speech.text = "Oh, man. I think my leg fell asleep.";
             Char2name.text = "";
             Char2speech.text = "";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 4)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "And the sound sof the seagulls!";
+            Char1name.text = "NARRATOR";
+            Char1speech.text = "Upon stepping off the rickety bus, you give your sleeping leg a good shake. Then, head held high, you look upon the sandy world before you.";
             Char2name.text = "";
             Char2speech.text = "";
         }
@@ -90,28 +91,28 @@ public class DialogueScene1 : MonoBehaviour
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "SEAGULL";
-            Char2speech.text = "ca-caw! ca-screach!";
+            Char2speech.text = "Shreee!! Craw! Craw! Craw! Craw!";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 6)
         {
             ArtChar1.SetActive(false);
-            Char1name.text = "YOU";
-            Char1speech.text = "I really needed this.";
+            Char1name.text = "NARRATOR";
+            Char1speech.text = "Overhead, the seagulls circle the beach. As annoying as they are, they are apart of the true beach experience.";
             Char2name.text = "";
             Char2speech.text = "";
         }
         else if (primeInt == 7)
         {
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "You";
-            Char2speech.text = "Why do you think I know anything?";
+            Char1name.text = "NARRATOR";
+            Char1speech.text = "Finally, you step your sandle wearing feet upon the scorching sand. Your striped beach bag in tow, its now time for the most important decision of all...";
+            Char2name.text = "";
+            Char2speech.text = "";
         }
         else if (primeInt == 8)
         {
-            Char1name.text = "Jeda";
-            Char1speech.text = "Do not play the stupid. You will take me to him.";
+            Char1name.text = "YOU";
+            Char1speech.text = "Where should I sit?";
             Char2name.text = "";
             Char2speech.text = "";
             // Turn off "Next" button, turn on "Choice" buttons
@@ -126,7 +127,7 @@ public class DialogueScene1 : MonoBehaviour
         else if (primeInt == 100)
         {
             Char1name.text = "YOU";
-            Char1speech.text = "Hey, kids, get off my towel!";
+            Char1speech.text = "I'll have to indulge in the salty breeze later.. What a beautiful shore.";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
@@ -136,7 +137,7 @@ public class DialogueScene1 : MonoBehaviour
         else if (primeInt == 200)
         {
             Char1name.text = "YOU";
-            Char1speech.text = "Huh. All these people are a bit TOO close. Ah well.";
+            Char1speech.text = "Lets... Hope that there isn't a strong breeze anytime soon";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
@@ -145,7 +146,7 @@ public class DialogueScene1 : MonoBehaviour
         else if (primeInt == 300)
         {
             Char1name.text = "YOU";
-            Char1speech.text = "I love that salty sea air!";
+            Char1speech.text = "Now, this way I don't have to have sand on everything!";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
@@ -154,7 +155,7 @@ public class DialogueScene1 : MonoBehaviour
         else if (primeInt == 10)
         {
             Char1name.text = "YOU";
-            Char1speech.text = "I'm ready for action!";
+            Char1speech.text = "But now is not the time to louse around! Lets get shell hunting!";
             Char2name.text = "";
             Char2speech.text = "";
             nextButton.SetActive(false);
@@ -166,8 +167,8 @@ public class DialogueScene1 : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
     public void Choice1aFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "Yup. The showers are always a prime spot.";
+        Char1name.text = "NARRATOR";
+        Char1speech.text = "Naturally, you make your way to the water as any eager beach-goer would. Comfortably you set your things by the ebbing and flowing shore.";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 99;
@@ -179,8 +180,8 @@ public class DialogueScene1 : MonoBehaviour
     }
     public void Choice1bFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "It is always nice to be surrounded by people, and the sand is warmest in the middle";
+        Char1name.text = "NARRATOR";
+        Char1speech.text = "A most interesting choice. Finding interest in the sandy, drawing hills; your towel fits comfortably at the foot of the nearest one.";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 199;
@@ -194,8 +195,8 @@ public class DialogueScene1 : MonoBehaviour
 
     public void Choice1cFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "Yeah, my stuff might get a litle wet, but at least I am right next to the shells!";
+        Char1name.text = "NARRATOR";
+        Char1speech.text = "Why, of course! The rocks are only the most interesting part of every sandy shore. Smack dab in the middle of the biggest rock, your towel rests comfortably on top.";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 299;
@@ -208,7 +209,7 @@ public class DialogueScene1 : MonoBehaviour
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("Scene2");
+        SceneManager.LoadScene("S2_SandGuy");
     }
     public void SceneChange2b()
     {
