@@ -16,12 +16,21 @@ public class DialogueScene2 : MonoBehaviour
     public Text Char3speech;
     public GameObject dialogue;
     public GameObject ArtChar1;
+    public GameObject ArtObj1;
+    public GameObject ArtObj2;
+    public GameObject ArtObj3;
+    public GameObject ArtObj4;
     public GameObject ArtBG1;
     public GameObject ArtBG2;
     public GameObject ArtBG3;
+    public GameObject ArtBG4;
     public GameObject Choice1a;
     public GameObject Choice1b;
     public GameObject Choice1c;
+    public GameObject Choice1d;
+    public GameObject Choice1e;
+    public GameObject Choice2a;
+    public GameObject Choice2b;
     public GameObject NextScene1Button;
     public GameObject NextScene2Button;
     public GameObject nextButton;
@@ -31,16 +40,32 @@ public class DialogueScene2 : MonoBehaviour
 
     void Start()
     {         // initial visibility settings
-        dialogue.SetActive(false);
         ArtChar1.SetActive(false);
-        ArtBG1.SetActive(true);
-        ArtBG2.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(false);
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(true);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(false);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
+        Choice1d.SetActive(false); // function Choice1bFunct()
+        Choice1e.SetActive(false); // function Choice1bFunct()
+        Choice2a.SetActive(false);
+        Choice2b.SetActive(false);
         NextScene1Button.SetActive(false);
         //NextScene2Button.SetActive(false);
         nextButton.SetActive(true);
+
+        // Dialogue Initialization
+        dialogue.SetActive(true);
+        Char1name.text = "You";
+        Char1speech.text = "I’m ready for some shelling!";
+        Char2name.text = "";
+        Char2speech.text = "";
     }
 
     void Update()
@@ -56,61 +81,53 @@ public class DialogueScene2 : MonoBehaviour
 
     public void talking()
     {         // main story function. Players hit next to progress to next int
-        primeInt = primeInt + 1;
-        if (primeInt == 1)
-        {
+        primeInt++;
+        if (primeInt == 1) {
             // AudioSource.Play();
-        }
-        else if (primeInt == 2)
-        {
-            
+        } else if (primeInt == 2) {
             dialogue.SetActive(true);
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "Narrarator";
+            Char1speech.text = "After you set your stuff down you start thinking about what you might need to bring down the beach with you";
             Char2name.text = "";
             Char2speech.text = "";
-        }
-        else if (primeInt == 3)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
-        }
-        else if (primeInt == 4)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 5)
-        {
-            ArtChar1.SetActive(true);
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+        } else if (primeInt == 3) {
+            Char1name.text = "You";
+            Char1speech.text = "I’m a pretty experienced sheller, so this shouldn’t take too long. Do I need to bring anything with me?";
             Char2name.text = "";
             Char2speech.text = "";
             //gameHandler.AddPlayerStat(1);
-        }
-        else if (primeInt == 6)
-        {
+        } else if (primeInt == 4) {
+            ArtBG2.SetActive(false);
+            ArtBG1.SetActive(true);
+            Char1name.text = "Player Choice";
+            Char1speech.text = "What do you bring?";
+            Char2name.text = "";
+            Char2speech.text = "";
+            Choice1a.SetActive(true); // function Choice1aFunct()
+            Choice1b.SetActive(true); // function Choice1bFunct()
+            Choice1c.SetActive(true); // function Choice1bFunct()
+            Choice1d.SetActive(true); // function Choice1bFunct()
+            Choice1e.SetActive(true); // function Choice1bFunct()
+            nextButton.SetActive(false);
+            allowSpace = false;
+        } else if (primeInt == 5) {
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
+            Char2name.text = "";
+            Char2speech.text = "";
+            //gameHandler.AddPlayerStat(1);
+        } else if (primeInt == 6) {
             ArtChar1.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "(text here)";
+            Char2name.text = "";
+            Char2speech.text = "";
+        //} else if (primeInt == 7) {
             Char1name.text = "(text here)";
             Char1speech.text = "(text here)";
             Char2name.text = "";
             Char2speech.text = "";
-        }
-        else if (primeInt == 7)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 8)
-        {
+        //} else if (primeInt == 8) {
             Char1name.text = "(text here)";
             Char1speech.text = "(text here)";
             Char2name.text = "";
@@ -118,40 +135,114 @@ public class DialogueScene2 : MonoBehaviour
             // Turn off "Next" button, turn on "Choice" buttons
             nextButton.SetActive(false);
             allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct()
-
+            Choice1a.SetActive(true);
+            Choice1b.SetActive(true);
+            Choice1c.SetActive(true);
+            Choice1d.SetActive(true);
+            Choice1e.SetActive(true);
         }
         // ENCOUNTER AFTER CHOICE #1
-        else if (primeInt == 100)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+        else if (primeInt == 100){
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true); ;
+            Choice2a.SetActive(true);
+            Choice2b.SetActive(true);
+            ArtObj1.SetActive(false);
+            ArtObj2.SetActive(false);
+            ArtObj3.SetActive(false);
+            ArtObj4.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
+            nextButton.SetActive(false);
+            allowSpace = false;
 
         }
 
         else if (primeInt == 200)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true);
+            Choice2a.SetActive(true);
+            Choice2b.SetActive(true);
+            ArtObj1.SetActive(false);
+            ArtObj2.SetActive(false);
+            ArtObj3.SetActive(false);
+            ArtObj4.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
+            nextButton.SetActive(false);
+            allowSpace = false;
+
         }
 
         else if (primeInt == 300)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true);
+            Choice2a.SetActive(true);
+            Choice2b.SetActive(true);
+            ArtObj1.SetActive(false);
+            ArtObj2.SetActive(false);
+            ArtObj3.SetActive(false);
+            ArtObj4.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
+            nextButton.SetActive(false);
+            allowSpace = false;
+
         }
 
+        else if (primeInt == 400)
+        {
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true);
+            Choice2a.SetActive(true);
+            Choice2b.SetActive(true);
+            ArtObj1.SetActive(false);
+            ArtObj2.SetActive(false);
+            ArtObj3.SetActive(false);
+            ArtObj4.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
+            Char2name.text = "";
+            Char2speech.text = "";
+            primeInt = 9;
+            nextButton.SetActive(false);
+            allowSpace = false;
+
+        }
+        else if (primeInt == 500)
+        {
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true);
+            Choice2a.SetActive(true);
+            Choice2b.SetActive(true);
+            ArtObj1.SetActive(false);
+            ArtObj2.SetActive(false);
+            ArtObj3.SetActive(false);
+            ArtObj4.SetActive(false);
+            Char1name.text = "Player";
+            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
+            Char2name.text = "";
+            Char2speech.text = "";
+            primeInt = 9;
+            nextButton.SetActive(false);
+            allowSpace = false;
+
+        }
+        else if (primeInt == 700)
+        {
+            SceneChange2a();
+        }
         else if (primeInt == 10)
         {
             Char1name.text = "(text here)";
@@ -167,49 +258,155 @@ public class DialogueScene2 : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
     public void Choice1aFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
+        Char1name.text = "Choice Made: No";
+        Char1speech.text = "Nah, I’m all set. I’ll be back in a jiffy, nothing could go wrong at such a beautiful beach!";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
     public void Choice1bFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
+        Char1name.text = "Hat";
+        Char1speech.text = "Well a hat will keep the sun out of my eyes so I can focus on the shells on the sand";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 199;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
-
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(true);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
     public void Choice1cFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
+        Char1name.text = "EpiPen";
+        Char1speech.text = "My doctor said I have to keep this with me at all times, might as well be prepared!";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 299;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(true);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+    public void Choice1dFunct()
+    {
+        Char1name.text = "Sunscreen";
+        Char1speech.text = "It’s a pretty bright day. No harm in taking my time shelling & being ready to re-apply";
+        Char2name.text = "";
+        Char2speech.text = "";
+        primeInt = 399;
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(true);
+        ArtObj4.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+    public void Choice1eFunct()
+    {
+        Char1name.text = "Sand Pail";
+        Char1speech.text = "If I’m going shelling might as well bring something to put them in!";
+        Char2name.text = "";
+        Char2speech.text = "";
+        primeInt = 499;
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(true);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+    public void Choice2aFunct() //left click
+    {
+        Char1name.text = "You";
+        Char1speech.text = "HERE WE GO!";
+        Char2name.text = "";
+        Char2speech.text = "";
+        primeInt = 699;
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(true);
+        ArtBG4.SetActive(false);
+        Choice2a.SetActive(false);
+        Choice2b.SetActive(false);
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(false);
+
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+    public void Choice2bFunct() //right click
+    {
+        Char1name.text = "You";
+        Char1speech.text = "HERE WE GO!";
+        Char2name.text = "";
+        Char2speech.text = "";
+        primeInt = 699;
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(true);
+        Choice2a.SetActive(false);
+        Choice2b.SetActive(false);
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+        Choice1d.SetActive(false);
+        Choice1e.SetActive(false);
+        ArtObj1.SetActive(false);
+        ArtObj2.SetActive(false);
+        ArtObj3.SetActive(false);
+        ArtObj4.SetActive(false);
+
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("S2_SandGuy");
+        SceneManager.LoadScene("S3_Sunburn");
     }
     public void SceneChange2b()
     {
