@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class DialogueScene4 : MonoBehaviour
+public class DialogueScene6 : MonoBehaviour
 {
     public int primeInt = 1; // This integer drives game progress!
     public Text Char1name;
@@ -215,10 +215,17 @@ public class DialogueScene4 : MonoBehaviour
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("S5");
+        SceneManager.LoadScene("S7");
     }
     public void SceneChange2b()
     {
+        SceneManager.LoadScene("S8");
+    }
+
+    public void SceneChange2c()
+    {
         SceneManager.LoadScene("End_LoseCrabSwarm");
     }
+
+
 }

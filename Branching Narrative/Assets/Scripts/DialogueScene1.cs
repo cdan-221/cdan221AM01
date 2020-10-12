@@ -209,7 +209,7 @@ public class DialogueScene1 : MonoBehaviour
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("S2_SandGuy 1");
+        SceneManager.LoadScene("S2_SandGuy");
     }
     public void SceneChange2b()
     {

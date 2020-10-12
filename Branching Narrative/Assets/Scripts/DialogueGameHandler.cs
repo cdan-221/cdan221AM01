@@ -30,9 +30,14 @@ public class DialogueGameHandler : MonoBehaviour
     //        Text scoreTextB = textGameObject.GetComponent ();
     //        scoreTextB.text = "Score: " + score; }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene("S1_Arrival");
+    }
+
     public void RestartGame()
     {
-        SceneManager.LoadScene("S1_Arrival 1");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
