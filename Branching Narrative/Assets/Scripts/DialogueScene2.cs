@@ -52,9 +52,9 @@ public class DialogueScene2 : MonoBehaviour
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
-        Choice1d.SetActive(false); // function Choice1bFunct()
-        Choice1e.SetActive(false); // function Choice1bFunct()
-        Choice2a.SetActive(false);
+        Choice1d.SetActive(false); 
+        Choice1e.SetActive(false); // function Choice1aFunct()
+        Choice2a.SetActive(false); // function Choice2aFunct()
         Choice2b.SetActive(false);
         NextScene1Button.SetActive(false);
         //NextScene2Button.SetActive(false);
@@ -104,10 +104,10 @@ public class DialogueScene2 : MonoBehaviour
             Char2name.text = "";
             Char2speech.text = "";
             Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct()
-            Choice1d.SetActive(true); // function Choice1bFunct()
-            Choice1e.SetActive(true); // function Choice1bFunct()
+            Choice1b.SetActive(true); 
+            Choice1c.SetActive(true); 
+            Choice1d.SetActive(true); 
+            Choice1e.SetActive(true); 
             nextButton.SetActive(false);
             allowSpace = false;
         } else if (primeInt == 5) {
@@ -243,6 +243,10 @@ public class DialogueScene2 : MonoBehaviour
         {
             SceneChange2a();
         }
+        else if (primeInt == 800)
+        {
+            SceneChange2b();
+        }
         else if (primeInt == 10)
         {
             Char1name.text = "(text here)";
@@ -373,7 +377,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
 
-        nextButton.SetActive(true);
+        NextScene1Button.SetActive(true);
         allowSpace = true;
     }
 
@@ -383,7 +387,7 @@ public class DialogueScene2 : MonoBehaviour
         Char1speech.text = "HERE WE GO!";
         Char2name.text = "";
         Char2speech.text = "";
-        primeInt = 699;
+        primeInt = 799;
         ArtBG1.SetActive(false);
         ArtBG2.SetActive(false);
         ArtBG3.SetActive(false);
@@ -400,16 +404,16 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
 
-        nextButton.SetActive(true);
+        NextScene1Button.SetActive(true);
         allowSpace = true;
     }
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("S3_Sunburn");
+        SceneManager.LoadScene("S3_Shell");
     }
     public void SceneChange2b()
     {
-        SceneManager.LoadScene("Scene2b");
+        SceneManager.LoadScene("S3_Shell");
     }
 }

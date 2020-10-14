@@ -19,6 +19,8 @@ public class DialogueScene1 : MonoBehaviour
     public GameObject ArtBG1;
     public GameObject ArtBG2;
     public GameObject ArtBG3;
+    public GameObject ArtBG4;
+    public GameObject ArtBG5;
     public GameObject Choice1a;
     public GameObject Choice1b;
     public GameObject Choice1c;
@@ -35,6 +37,9 @@ public class DialogueScene1 : MonoBehaviour
         ArtChar1.SetActive(false);
         ArtBG1.SetActive(true);
         ArtBG2.SetActive(false);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(false);
+        ArtBG5.SetActive(false);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
@@ -98,7 +103,7 @@ public class DialogueScene1 : MonoBehaviour
         {
             ArtChar1.SetActive(false);
             Char1name.text = "NARRATOR";
-            Char1speech.text = "Overhead, the seagulls circle the beach. As annoying as they are, they are apart of the true beach experience.";
+            Char1speech.text = "Overhead, the seagulls circle the beach. As annoying as they are, they are a part of the true beach experience.";
             Char2name.text = "";
             Char2speech.text = "";
         }
@@ -111,6 +116,8 @@ public class DialogueScene1 : MonoBehaviour
         }
         else if (primeInt == 8)
         {
+            ArtBG1.SetActive(false);
+            ArtBG2.SetActive(true);
             Char1name.text = "YOU";
             Char1speech.text = "Where should I sit?";
             Char2name.text = "";
@@ -167,6 +174,11 @@ public class DialogueScene1 : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
     public void Choice1aFunct()
     {
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(true);
+        ArtBG4.SetActive(false);
+        ArtBG5.SetActive(false);
         Char1name.text = "NARRATOR";
         Char1speech.text = "Naturally, you make your way to the water as any eager beach-goer would. Comfortably you set your things by the ebbing and flowing shore.";
         Char2name.text = "";
@@ -180,6 +192,11 @@ public class DialogueScene1 : MonoBehaviour
     }
     public void Choice1bFunct()
     {
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(true);
+        ArtBG5.SetActive(false);
         Char1name.text = "NARRATOR";
         Char1speech.text = "A most interesting choice. Finding interest in the sandy, drawing hills; your towel fits comfortably at the foot of the nearest one.";
         Char2name.text = "";
@@ -195,6 +212,11 @@ public class DialogueScene1 : MonoBehaviour
 
     public void Choice1cFunct()
     {
+        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(false);
+        ArtBG5.SetActive(true);
         Char1name.text = "NARRATOR";
         Char1speech.text = "Why, of course! The rocks are only the most interesting part of every sandy shore. Smack dab in the middle of the biggest rock, your towel rests comfortably on top.";
         Char2name.text = "";
@@ -209,7 +231,7 @@ public class DialogueScene1 : MonoBehaviour
 
     public void SceneChange2a()
     {
-        SceneManager.LoadScene("S2_SandGuy");
+        SceneManager.LoadScene("S2_Stuff");
     }
     public void SceneChange2b()
     {

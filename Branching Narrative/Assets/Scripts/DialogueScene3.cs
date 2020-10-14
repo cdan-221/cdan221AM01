@@ -38,6 +38,11 @@ public class DialogueScene3 : MonoBehaviour
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
+        dialogue.SetActive(true);
+        Char1name.text = "YOU";
+        Char1speech.text = "Hmm anything over here?";
+        Char2name.text = "";
+        Char2speech.text = "";
         NextScene1Button.SetActive(false);
         //NextScene2Button.SetActive(false);
         nextButton.SetActive(true);
@@ -56,163 +61,108 @@ public class DialogueScene3 : MonoBehaviour
 
     public void talking()
     {         // main story function. Players hit next to progress to next int
-        primeInt = primeInt + 1;
+        primeInt++;
         if (primeInt == 1)
         {
             // AudioSource.Play();
         }
         else if (primeInt == 2)
         {
-            
-            dialogue.SetActive(true);
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 3)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "YOU";
+            Char1speech.text = "Nope, just a rock";
             Char2name.text = "";
             Char2speech.text = "";
             //gameHandler.AddPlayerStat(1);
         }
-        else if (primeInt == 4)
+        else if (primeInt == 3)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "YOU";
+            Char1speech.text = "How about here?";
             Char2name.text = "";
             Char2speech.text = "";
+        }
+        else if (primeInt == 4)
+        {
+            Char1name.text = "YOU";
+            Char1speech.text = "Nope, just a dead crab";
+            Char2name.text = "";
+            Char2speech.text = "";
+            //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 5)
         {
             ArtChar1.SetActive(true);
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "YOU";
+            Char1speech.text = "What’s that?! Could I have already found the ‘Golden Shell’?!";
             Char2name.text = "";
             Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
-        }
-        else if (primeInt == 6)
-        {
-            ArtChar1.SetActive(false);
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 7)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 8)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off "Next" button, turn on "Choice" buttons
             nextButton.SetActive(false);
             allowSpace = false;
             Choice1a.SetActive(true); // function Choice1aFunct()
             Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct()
-
+          
         }
+
         // ENCOUNTER AFTER CHOICE #1
         else if (primeInt == 100)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "YOU";
+            Char1speech.text = "Sea Chanty Lyrics* *Sea Chanty Lyrics*";
             Char2name.text = "";
             Char2speech.text = "";
-            primeInt = 9;
-
+            ArtChar1.SetActive(false);
+            nextButton.SetActive(true);
+            allowSpace = true;
         }
 
-        else if (primeInt == 200)
+        else if (primeInt == 101)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
+            Char1name.text = "YOU";
+            Char1speech.text = "I hope I find that Golden Shell soon!";
             Char2name.text = "";
             Char2speech.text = "";
-            primeInt = 9;
-        }
-
-        else if (primeInt == 300)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
-        }
-
-        else if (primeInt == 10)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here)";
-            Char2name.text = "";
-            Char2speech.text = "";
+            ArtChar1.SetActive(false);
             nextButton.SetActive(false);
             allowSpace = false;
             NextScene1Button.SetActive(true);
         }
+
     }
 
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
     public void Choice1aFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
+        Char1name.text = "YOU";
+        Char1speech.text = "It’s not the Golden Shell but it sure is pretty! I call it a keeper!";
+        Char2name.text = "";
+        Char2speech.text = "";
+        primeInt = 99;
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+    public void Choice1bFunct()
+    {
+        Char1name.text = "YOU";
+        Char1speech.text = "Too plain and boring, not worth it. Moving on with the hunt!";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
-        nextButton.SetActive(true);
-        allowSpace = true;
-    }
-    public void Choice1bFunct()
-    {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
-        Char2name.text = "";
-        Char2speech.text = "";
-        primeInt = 199;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-
+        ArtChar1.SetActive(true);
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
-    public void Choice1cFunct()
+    public void SceneChange3a()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here)";
-        Char2name.text = "";
-        Char2speech.text = "";
-        primeInt = 299;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-        nextButton.SetActive(true);
-        allowSpace = true;
+        SceneManager.LoadScene("S4_Sunburn");
     }
-
-    public void SceneChange2a()
+    public void SceneChange3b()
     {
-        SceneManager.LoadScene("S4_BagOfStuff");
-    }
-    public void SceneChange2b()
-    {
-        SceneManager.LoadScene("Scene2b");
+        SceneManager.LoadScene("Scene3b");
     }
 }
