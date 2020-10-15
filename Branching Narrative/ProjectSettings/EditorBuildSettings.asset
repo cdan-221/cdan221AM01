@@ -20,4 +20,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S4_Sunburn.unity
     guid: 73ec3c7c7ff7b954da88fd2c6a33e729
+  - enabled: 1
+    path: Assets/Scenes/S5.unity
+    guid: bd784d2d5bb2420429971782ab7259de
+  - enabled: 1
+    path: Assets/Scenes/S6.unity
+    guid: f2383025283e478448a9f44a9b64062d
+  - enabled: 1
+    path: Assets/Scenes/S7.unity
+    guid: 892e43adb3f75124fb940465ebd2f912
+  - enabled: 1
+    path: Assets/Scenes/S7b.unity
+    guid: 4624be8d01de3544291e70fab7bb3f4f
+  - enabled: 1
+    path: Assets/Scenes/S8.unity
+    guid: 097db7326607e35458b49262c34906b5
+  - enabled: 1
+    path: Assets/Scenes/S9.unity
+    guid: 6d11c03ccf777b5458440efc84ed0b9e
+  - enabled: 1
+    path: Assets/Scenes/S10.unity
+    guid: 8abc74114ccbc544589259d49de013f4
+  - enabled: 1
+    path: Assets/Scenes/End_LoseCrabPinch.unity
+    guid: 35b69d45fa4541a4a9ad1fae2c03577b
+  - enabled: 1
+    path: Assets/Scenes/End_LoseCrabSwarm.unity
+    guid: 6c26ac13b8efa4d3592c6a7901b48dc4
+  - enabled: 1
+    path: Assets/Scenes/End_LoseNoShell.unity
+    guid: 28bc509a37ae51f4a87d8dbcec4aaa26
+  - enabled: 1
+    path: Assets/Scenes/End_Win.unity
+    guid: 1a04a379a84cb4bba8185bb135f6b840
   m_configObjects: {}

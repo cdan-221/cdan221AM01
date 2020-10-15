@@ -17,6 +17,8 @@ public class DialogueScene4 : MonoBehaviour
     public GameObject Choice2b;
     public GameObject NextScene1Button;
     public GameObject nextButton;
+    public GameObject ArtOBJ1;
+    public GameObject ArtOBJ2;
     private bool allowSpace = true;
 
     // Initialize Scene
@@ -25,6 +27,8 @@ public class DialogueScene4 : MonoBehaviour
         // Game Imagery
         ArtBG1.SetActive(true);
         ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(false);
+        ArtOBJ2.SetActive(false);
 
         // Dialogue Values
         charName.text = "CRISPY";
@@ -131,6 +135,7 @@ public class DialogueScene4 : MonoBehaviour
         // Encounter After Choice 1b
         else if (primeInt == 200)
         {
+            ArtOBJ1.SetActive(false);
             NextScene1Button.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
@@ -144,13 +149,18 @@ public class DialogueScene4 : MonoBehaviour
         }
         else if (primeInt == 301)
         {
+            ArtOBJ1.SetActive(true);
+            ArtOBJ2.SetActive(true);
+            ArtChar1.SetActive(false);
             charName.text = "YOU";
             charSpeech.text = "We found like about tree fiddy shells!";
         }
         else if (primeInt == 302)
         {
             charName.text = "CRISPY";
-            charSpeech.text = "Yeah dude, let's go to scene 5!";
+            charSpeech.text = "Yeah dude, let's keep lookin'!";
+            ArtOBJ1.SetActive(false);
+            ArtOBJ2.SetActive(false);
             NextScene1Button.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
@@ -159,6 +169,7 @@ public class DialogueScene4 : MonoBehaviour
         // Encounter After Choice 2b
         else if (primeInt == 400)
         {
+            ArtOBJ1.SetActive(false);
             NextScene1Button.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
@@ -181,8 +192,10 @@ public class DialogueScene4 : MonoBehaviour
     public void Choice1bFunct()
     {
         charName.text = "NARRATOR";
-        charSpeech.text = "You wander around a bit and find only 1 shell...";
+        charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 199;
+        ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(true);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         nextButton.SetActive(true);
@@ -205,8 +218,10 @@ public class DialogueScene4 : MonoBehaviour
     public void Choice2bFunct()
     {
         charName.text = "NARRATOR";
-        charSpeech.text = "You wander around a bit and find only 1 shell...";
+        charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 399;
+        ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(true);
         Choice2a.SetActive(false);
         Choice2b.SetActive(false);
         nextButton.SetActive(true);
@@ -214,7 +229,7 @@ public class DialogueScene4 : MonoBehaviour
     }
 
     // Handle Load Scene 5 Input
-    public void SceneChange2a()
+    public void SceneChange5()
     {
         SceneManager.LoadScene("S5");
     }
