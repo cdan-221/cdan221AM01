@@ -68,37 +68,37 @@ public class DialogueScene7b : MonoBehaviour
             ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            Char2name.text = "PICKNICKER 1";
+            Char2speech.text = "Bob! BOB! They are going after the kids sandwiches! BOB!!";
         }
         else if (primeInt == 3)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "What the heck?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "PICKNICKER 2";
+            Char2speech.text = "Phyllis they have the chips! You deal with those birds, I’ll deal with these";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 4)
         {
             Char1name.text = "";
             Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            Char2name.text = "PICKNICKING KIDS";
+            Char2speech.text = "(wails of lament and panic)";
         }
         else if (primeInt == 5)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Yikes I don’t think they meant to get that crispy!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "PICKNICKER 1";
+            Char2speech.text = "THEY’RE STEALING OUR LUNCH! EXCUSE ME! Can you grab that bag?!";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 6)
         {
             ArtChar1.SetActive(false);
             Char1name.text = "";
-            Char1speech.text = "(you approach the snoozing, sunburnt, beach goer, do you help?)";
+            Char1speech.text = "(help the picknickers?)";
             Char2name.text = "";
             Char2speech.text = "";
             // Turn off "Next" button, turn on "Choice" buttons
@@ -110,15 +110,15 @@ public class DialogueScene7b : MonoBehaviour
         }
         else if (primeInt == 7)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "excuse me, are you ok? You were asleep and maybe getting a little extra red!";
+            Char1name.text = "";
+            Char1speech.text = "";
             Char2name.text = "";
             Char2speech.text = "";
         }
         else if (primeInt == 8)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 2)";
+            Char1name.text = "";
+            Char1speech.text = "";
             Char2name.text = "";
             Char2speech.text = "";
             // Turn off "Next" button, turn on "Choice" buttons
@@ -132,27 +132,28 @@ public class DialogueScene7b : MonoBehaviour
         // ENCOUNTER AFTER CHOICE #1  
         else if (primeInt == 100)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 3)";
+            Char1name.text = "";
+            Char1speech.text = "(You run at the seagull, waving your arms to scare them away from the bag of Sandwiches)";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
 
         }
-
-        else if (primeInt == 200)
+		
+		else if (primeInt == 200)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 4)";
+            Char1name.text = "PICKNICKER 2";
+            Char1speech.text = "Thank you! These pesky birds, they sure do know how to ruin a nice relaxing moment with the family, but I suppose no beach day is complete without them!";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
+
         }
 
         else if (primeInt == 300)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 5)";
+            Char1name.text = "PICKNICKER 1";
+            Char1speech.text = "Kids, help this lovely lunch savior scare off some of these crabs!";
             Char2name.text = "";
             Char2speech.text = "";
             primeInt = 9;
@@ -160,10 +161,10 @@ public class DialogueScene7b : MonoBehaviour
 
         else if (primeInt == 10)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 6)";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Wow what a bonus! The kids AND the gulls are going after the crabs!";
             nextButton.SetActive(false);
             allowSpace = false;
             NextScene1Button.SetActive(true);
@@ -174,9 +175,9 @@ public class DialogueScene7b : MonoBehaviour
     public void Choice1aFunct()
     {
         Char1name.text = "";
-        Char1speech.text = "(You nudge Crispy)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "Don’t you worry I’m on it!";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -186,8 +187,8 @@ public class DialogueScene7b : MonoBehaviour
     }
     public void Choice1bFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 7)";
+        Char1name.text = "";
+        Char1speech.text = "(The seagulls start to go after you! Go back and help the picnickers, maybe you can team up?)";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 199;
@@ -201,8 +202,8 @@ public class DialogueScene7b : MonoBehaviour
 
     public void Choice1cFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 8)";
+        Char1name.text = "";
+        Char1speech.text = "";
         Char2name.text = "";
         Char2speech.text = "";
         primeInt = 299;
