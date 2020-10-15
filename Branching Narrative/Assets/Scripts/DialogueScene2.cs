@@ -34,7 +34,7 @@ public class DialogueScene2 : MonoBehaviour
     public GameObject NextScene1Button;
     public GameObject NextScene2Button;
     public GameObject nextButton;
-    //public GameObject gameHandler;
+    public DialogueGameHandler gameHandler;
     //public AudioSource audioSource;
     private bool allowSpace = true;
 
@@ -277,6 +277,7 @@ public class DialogueScene2 : MonoBehaviour
     }
     public void Choice1bFunct()
     {
+        gameHandler.SetPrimaryItem("Hat");
         Char1name.text = "Hat";
         Char1speech.text = "Well a hat will keep the sun out of my eyes so I can focus on the shells on the sand";
         Char2name.text = "";
@@ -297,6 +298,7 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice1cFunct()
     {
+        gameHandler.SetPrimaryItem("EpiPEN");
         Char1name.text = "EpiPen";
         Char1speech.text = "My doctor said I have to keep this with me at all times, might as well be prepared!";
         Char2name.text = "";
@@ -316,6 +318,7 @@ public class DialogueScene2 : MonoBehaviour
     }
     public void Choice1dFunct()
     {
+        gameHandler.SetPrimaryItem("Sunscreen");
         Char1name.text = "Sunscreen";
         Char1speech.text = "It’s a pretty bright day. No harm in taking my time shelling & being ready to re-apply";
         Char2name.text = "";
@@ -336,6 +339,7 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice1eFunct()
     {
+        gameHandler.SetPrimaryItem("Sand Pail");
         Char1name.text = "Sand Pail";
         Char1speech.text = "If I’m going shelling might as well bring something to put them in!";
         Char2name.text = "";

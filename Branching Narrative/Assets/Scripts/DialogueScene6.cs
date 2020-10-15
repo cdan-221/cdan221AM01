@@ -1,231 +1,221 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class DialogueScene6 : MonoBehaviour
 {
-    public int primeInt = 1; // This integer drives game progress!
-    public Text Char1name;
-    public Text Char1speech;
-    public Text Char2name;
-    public Text Char2speech;
-    public Text Char3name;
-    public Text Char3speech;
+    // Variable Declartions
+    public int primeInt = 1;
+    public DialogueGameHandler gameHandler;
     public GameObject dialogue;
+    public Text charName;
+    public Text charSpeech;
     public GameObject ArtChar1;
+    public GameObject ArtChar2;
+    public GameObject ArtChar3;
     public GameObject ArtBG1;
-    public GameObject ArtBG2;
-    public GameObject ArtBG3;
-    public GameObject Choice1a;
-    public GameObject Choice1b;
-    public GameObject Choice1c;
-    public GameObject NextScene1Button;
-    public GameObject NextScene2Button;
+    public GameObject ArtOBJ1;
+    public GameObject ChoiceA;
+    public GameObject ChoiceB;
+    public GameObject NextSceneAButton;
+    public GameObject NextSceneBButton;
     public GameObject nextButton;
-    //public GameObject gameHandler;
-    //public AudioSource audioSource;
     private bool allowSpace = true;
 
+    // Initialize Scene
     void Start()
-    {         // initial visibility settings
-        dialogue.SetActive(false);
-        ArtChar1.SetActive(false);
+    {
+        // Game Imagery
         ArtBG1.SetActive(true);
-        ArtBG2.SetActive(false);
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-        NextScene1Button.SetActive(false);
-        //NextScene2Button.SetActive(false);
+        ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
+        ArtChar3.SetActive(false);
+        ArtOBJ1.SetActive(true);
+
+        // Dialogue Values
+        charName.text = "NARRATOR";
+        charSpeech.text = "As walk down the beach you see a dog sprinting toward you...";
+
+        // Game Inputs
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
+
+        // Dialogue Visibility
+        dialogue.SetActive(true);
+
+        // Advance Scene Inputs
+        NextSceneAButton.SetActive(false);
+        NextSceneBButton.SetActive(false);
         nextButton.SetActive(true);
+        allowSpace = true;
     }
 
+    // Handle Advance Scene Input
     void Update()
-    {         // use spacebar as Next button
-        if (allowSpace == true)
+    {
+        if (allowSpace == true && Input.GetKeyDown("space"))
         {
-            if (Input.GetKeyDown("space"))
-            {
-                talking();
-            }
+            Talking();
         }
     }
 
-    public void talking()
-    {         // main story function. Players hit next to progress to next int
-        primeInt = primeInt + 1;
-        if (primeInt == 1)
+    // Main Scene Sequence
+    public void Talking()
+    {
+        primeInt++;
+        if (primeInt == 2)
         {
-            // AudioSource.Play();
-        }
-        else if (primeInt == 2)
-        {
-            
-            dialogue.SetActive(true);
+            ArtOBJ1.SetActive(false);
             ArtChar1.SetActive(true);
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            charName.text = "FRISBEE DUDE 1";
+            charSpeech.text = "Ah man the dog got it! Hey dog! Give it back!!";
         }
         else if (primeInt == 3)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "What the heck?";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+            charName.text = "FRISBEE DUDE 2";
+            charSpeech.text = "Who’s dog is this?! What the...hey there he’s running toward you grab him!";
         }
         else if (primeInt == 4)
         {
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            charName.text = "YOU";
+            charSpeech.text = "Who me?!";
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(false);
         }
         else if (primeInt == 5)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Yikes I don’t think they meant to get that crispy!";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(true);
+            charName.text = "FRISBEE DUDE 3";
+            charSpeech.text = "YES GRAB THE DOG HE HAS OUR FRISBEEEE!";
+
         }
         else if (primeInt == 6)
         {
-            ArtChar1.SetActive(false);
-            Char1name.text = "";
-            Char1speech.text = "(you approach the snoozing, sunburnt, beach goer, do you help?)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off "Next" button, turn on "Choice" buttons
+            ArtChar3.SetActive(false);
+            charName.text = "NARRATOR";
+            charSpeech.text = "Help the fellas get the frisbee back?";
+            ChoiceA.SetActive(true);
+            ChoiceB.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct()
         }
-        else if (primeInt == 7)
-        {
-            Char1name.text = "YOU";
-            Char1speech.text = "excuse me, are you ok? You were asleep and maybe getting a little extra red!";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 8)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 2)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off "Next" button, turn on "Choice" buttons
-            /* nextButton.SetActive(false);
-            allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct() */
 
-        }  
-        // ENCOUNTER AFTER CHOICE #1  
+
+
+        // Encounter After Choice A
         else if (primeInt == 100)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 3)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
-
+            charName.text = "YOU";
+            charSpeech.text = "Here doge, want a treat?!";
         }
 
-        else if (primeInt == 200)
+        else if (primeInt == 101)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 4)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
+            charName.text = "NARRATOR";
+            charSpeech.text = "The dog drops the frisbee at your feet";
         }
 
-        else if (primeInt == 300)
+        else if (primeInt == 102)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 5)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
+            charName.text = "NARRATOR";
+            charSpeech.text = "You dig around in your pocket and find an old cheese-it, which you give to the dog";
         }
-
-        else if (primeInt == 10)
+        else if (primeInt == 103)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 6)";
-            Char2name.text = "";
-            Char2speech.text = "";
+            charName.text = "FRISBEE DUDE 1";
+            charSpeech.text = "Hey thanks! That was really nice of you!";
+            ArtChar1.SetActive(true);
+        }
+        else if (primeInt == 104)
+        {
+            charName.text = "FRISBEE DUDE 2";
+            charSpeech.text = "Is there anything we can do to repay ya?";
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+        }
+        else if (primeInt == 105)
+        {
+            charName.text = "YOU";
+            charSpeech.text = "well, Im shell hunting and there are all the crabs that seem to just be coming out of nowhere…";
+            ArtChar2.SetActive(false);
+
+        }
+        else if (primeInt == 106)
+        {
+            charName.text = "FRISBEE DUDE 3";
+            charSpeech.text = "Sure that’s no problem, we can scare some away for you, they don’t seem to come near us running around with the frisbee!";
+            ArtChar3.SetActive(true);
+        }
+        else if (primeInt == 107)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "The Frisbee Dudes help shoo away crabs so you can shell peacefully";
+            ArtChar3.SetActive(false);
+            NextSceneAButton.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
-            NextScene1Button.SetActive(true);
+        }
+
+
+
+        // Encounter After Choice B
+        else if (primeInt == 200)
+        {
+            charName.text = "FRISBEE DUDE 1";
+            charSpeech.text = "Wow, real nice he was bringing the frisbee to you and you couldn’t just grab it for us? Jerk…";
+            ArtChar1.SetActive(true);
+        }
+        else if (primeInt == 201)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "The crab migration is growing bigger and bigger. You can't outrun them...";
+            ArtChar1.SetActive(false);
+            NextSceneBButton.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
         }
     }
 
-    // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
-    public void Choice1aFunct()
+
+
+    // Handle Button Choice A Input
+    public void ChoiceAFunct()
     {
-        Char1name.text = "";
-        Char1speech.text = "(You nudge Crispy)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        charName.text = "NARRATOR";
+        charSpeech.text = "You decide to help get the frisbee back";
         primeInt = 99;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
-    public void Choice1bFunct()
+
+    // Handle Button Choice B Input
+    public void ChoiceBFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 7)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        charName.text = "NARRATOR";
+        charSpeech.text = "You decide it's getting late, and you don't have time to try to get a frisbee from the dog...";
         primeInt = 199;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
-    public void Choice1cFunct()
-    {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 8)";
-        Char2name.text = "";
-        Char2speech.text = "";
-        primeInt = 299;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-        nextButton.SetActive(true);
-        allowSpace = true;
-    }
 
-    public void SceneChange2a()
+
+    // Handle Load Scene A Input
+    public void SceneChangeA()
     {
         SceneManager.LoadScene("S7");
     }
-    public void SceneChange2b()
-    {
-        SceneManager.LoadScene("S8");
-    }
 
-    public void SceneChange2c()
+    // Handle Load Scene B Input
+    public void SceneChangeB()
     {
         SceneManager.LoadScene("End_LoseCrabSwarm");
     }
-
-
 }

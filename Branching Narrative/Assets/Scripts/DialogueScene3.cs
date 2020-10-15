@@ -25,7 +25,7 @@ public class DialogueScene3 : MonoBehaviour
     public GameObject NextScene1Button;
     public GameObject NextScene2Button;
     public GameObject nextButton;
-    //public GameObject gameHandler;
+    public DialogueGameHandler gameHandler;
     //public AudioSource audioSource;
     private bool allowSpace = true;
 
@@ -132,6 +132,7 @@ public class DialogueScene3 : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
     public void Choice1aFunct()
     {
+        gameHandler.AddShells(1);
         Char1name.text = "YOU";
         Char1speech.text = "It’s not the Golden Shell but it sure is pretty! I call it a keeper!";
         Char2name.text = "";

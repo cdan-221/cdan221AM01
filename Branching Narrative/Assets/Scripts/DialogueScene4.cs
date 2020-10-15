@@ -8,6 +8,7 @@ public class DialogueScene4 : MonoBehaviour
     public int primeInt = 1;
     public Text charName;
     public Text charSpeech;
+    public DialogueGameHandler gameHandler;
     public GameObject dialogue;
     public GameObject ArtChar1;
     public GameObject ArtBG1;
@@ -149,6 +150,7 @@ public class DialogueScene4 : MonoBehaviour
         }
         else if (primeInt == 301)
         {
+            gameHandler.AddShells(2);
             ArtOBJ1.SetActive(true);
             ArtOBJ2.SetActive(true);
             ArtChar1.SetActive(false);
@@ -191,6 +193,7 @@ public class DialogueScene4 : MonoBehaviour
     // Handle Button Choice 1b Input
     public void Choice1bFunct()
     {
+        gameHandler.AddShells(1);
         charName.text = "NARRATOR";
         charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 199;
@@ -217,6 +220,7 @@ public class DialogueScene4 : MonoBehaviour
     // Handle Button Choice 2b Input
     public void Choice2bFunct()
     {
+        gameHandler.AddShells(1);
         charName.text = "NARRATOR";
         charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 399;

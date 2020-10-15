@@ -180,6 +180,7 @@ MonoBehaviour:
   NextScene1Button: {fileID: 1789954802}
   NextScene2Button: {fileID: 50228745}
   nextButton: {fileID: 1916081953}
+  gameHandler: {fileID: 727787018}
 --- !u!114 &50228747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,6 +1354,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fbddcb74d56f2146bb3f30f0b9b89f7, type: 3}
+--- !u!114 &727787018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6513444655657235745, guid: 9fbddcb74d56f2146bb3f30f0b9b89f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 727787017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b804b3aebd5802d4fa7fbc360deaf4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &792464147
 GameObject:
   m_ObjectHideFlags: 0

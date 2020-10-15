@@ -1,224 +1,333 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class DialogueScene5 : MonoBehaviour
 {
-    public int primeInt = 1; // This integer drives game progress!
-    public Text Char1name;
-    public Text Char1speech;
-    public Text Char2name;
-    public Text Char2speech;
-    public Text Char3name;
-    public Text Char3speech;
+    // Variable Declartions
+    public int primeInt = 1;
+    public DialogueGameHandler gameHandler;
     public GameObject dialogue;
+    public Text charName;
+    public Text charSpeech;
     public GameObject ArtChar1;
     public GameObject ArtBG1;
-    public GameObject ArtBG2;
-    public GameObject ArtBG3;
-    public GameObject Choice1a;
-    public GameObject Choice1b;
-    public GameObject Choice1c;
-    public GameObject NextScene1Button;
-    public GameObject NextScene2Button;
+    public GameObject ArtOBJ1;
+    public GameObject ArtOBJ2;
+    public GameObject ChoiceA;
+    public GameObject ChoiceB;
+    public GameObject ChoiceAA;
+    public GameObject ChoiceAB;
+    public GameObject ChoiceBA;
+    public GameObject ChoiceBB;
+    public GameObject NextSceneAButton;
+    public GameObject NextSceneBButton;
+    public GameObject NextSceneCButton;
     public GameObject nextButton;
-    //public GameObject gameHandler;
-    //public AudioSource audioSource;
     private bool allowSpace = true;
 
+    // Initialize Scene
     void Start()
-    {         // initial visibility settings
-        dialogue.SetActive(false);
-        ArtChar1.SetActive(false);
+    {
+        // Game Imagery
         ArtBG1.SetActive(true);
-        ArtBG2.SetActive(false);
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-        NextScene1Button.SetActive(false);
-        //NextScene2Button.SetActive(false);
+        ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(false);
+        ArtOBJ2.SetActive(false);
+
+        // Dialogue Values
+        charName.text = "NARRATOR";
+        charSpeech.text = "As you continue to shell you hear a voice in the distance...";
+
+        // Game Inputs
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
+        ChoiceBA.SetActive(false);
+        ChoiceBB.SetActive(false);
+
+        // Dialogue Visibility
+        dialogue.SetActive(true);
+
+        // Advance Scene Inputs
+        NextSceneAButton.SetActive(false);
+        NextSceneBButton.SetActive(false);
+        NextSceneCButton.SetActive(false);
         nextButton.SetActive(true);
+        allowSpace = true;
     }
 
+    // Handle Advance Scene Input
     void Update()
-    {         // use spacebar as Next button
-        if (allowSpace == true)
+    {
+        if (allowSpace == true && Input.GetKeyDown("space"))
         {
-            if (Input.GetKeyDown("space"))
-            {
-                talking();
-            }
+            Talking();
         }
     }
 
-    public void talking()
-    {         // main story function. Players hit next to progress to next int
-        primeInt = primeInt + 1;
-        if (primeInt == 1)
+    // Main Scene Sequence
+    public void Talking()
+    {
+        primeInt++;
+        if (primeInt == 2)
         {
-            // AudioSource.Play();
-        }
-        else if (primeInt == 2)
-        {
-            
-            dialogue.SetActive(true);
-            ArtChar1.SetActive(true);
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            charName.text = "???";
+            charSpeech.text = "Hey guys, this isn't funny!";
         }
         else if (primeInt == 3)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "What the heck?";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
+            charName.text = "???";
+            charSpeech.text = "C'mon you guys, I'm stuck!!!";
         }
         else if (primeInt == 4)
         {
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "CRISPY";
-            Char2speech.text = "Z-Z-Z!!!";
+            charName.text = "NARRATOR";
+            charSpeech.text = "As you search for the source of the voice you come across an irate head sticking out of the sand!";
+            ArtChar1.SetActive(true);
         }
         else if (primeInt == 5)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Yikes I don’t think they meant to get that crispy!";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
+            charName.text = "SANDY";
+            charSpeech.text = "HEY YOU! Down here! Excuse me, call me Sandy, can you dig me out?";
         }
         else if (primeInt == 6)
         {
-            ArtChar1.SetActive(false);
-            Char1name.text = "";
-            Char1speech.text = "(you approach the snoozing, sunburnt, beach goer, do you help?)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off "Next" button, turn on "Choice" buttons
-            nextButton.SetActive(false);
-            allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct()
+            charName.text = "YOU";
+            charSpeech.text = "Do you mean me???";
         }
         else if (primeInt == 7)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "excuse me, are you ok? You were asleep and maybe getting a little extra red!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            charName.text = "SANDY";
+            charSpeech.text = "Yeah you! My friends left me for dead here, so will you help me out?";
         }
         else if (primeInt == 8)
         {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 2)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off "Next" button, turn on "Choice" buttons
-            /* nextButton.SetActive(false);
-            allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
-            Choice1c.SetActive(true); // function Choice1bFunct() */
-
-        }  
-        // ENCOUNTER AFTER CHOICE #1  
-        else if (primeInt == 100)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 3)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
-
-        }
-
-        else if (primeInt == 200)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 4)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
-        }
-
-        else if (primeInt == 300)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 5)";
-            Char2name.text = "";
-            Char2speech.text = "";
-            primeInt = 9;
-        }
-
-        else if (primeInt == 10)
-        {
-            Char1name.text = "(text here)";
-            Char1speech.text = "(text here 6)";
-            Char2name.text = "";
-            Char2speech.text = "";
+            charName.text = "NARRATOR";
+            charSpeech.text = "You consider Sandy's plea...";
+            ChoiceA.SetActive(true);
+            ChoiceB.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
-            NextScene1Button.SetActive(true);
+        }
+
+
+
+        // Encounter After Choice A
+        else if (primeInt == 100)
+        {
+            charName.text = "SANDY";
+            charSpeech.text = "Thank you thank you thank you, I thought I was a goner! I don't know if my friends were even planning to come back...";
+        }
+
+        else if (primeInt == 101)
+        {
+            charName.text = "YOU";
+            charSpeech.text = "No problem, glad I could help!";
+        }
+
+        else if (primeInt == 102)
+        {
+            charName.text = "SANDY";
+            charSpeech.text = "So what are you up to, it seemed like you were looking for something?";
+        }
+        else if (primeInt == 103)
+        {
+            charName.text = "YOU";
+            charSpeech.text = "I am! I'm shelling and looking for something special!";
+        }
+        else if (primeInt == 104)
+        {
+            charName.text = "SANDY";
+            charSpeech.text = "Sounds like a whoop. Here, want this old tote bag to carry all those shells in?";
+        }
+        else if (primeInt == 105)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "Do you accept the tote from Sandy?";
+            ArtOBJ1.SetActive(true);
+            ChoiceAA.SetActive(true);
+            ChoiceAB.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
+        }
+
+        // Encounter After Choice B
+        else if (primeInt == 200)
+        {
+            charName.text = "SANDY";
+            charSpeech.text = "Aww c'mon I'm really stuck!!! ...jerk!";
+        }
+        else if (primeInt == 201)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "You go back to shelling merrily, ignoring Sandy's cries for attention";
+        }
+        else if (primeInt == 202)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "As you lose yourself in the wonder of shelling, you hardly notice the crabs beginning to encircle you...";
+        }
+        else if (primeInt == 203)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "You feel a sudden sting and wince in pain, as you see a swarm of pinching crabs gatherering around you and pinching you!!!";
+        }
+        else if (primeInt == 204)
+        {
+            if (gameHandler.GetPrimaryItem() == "EpiPEN")
+            {
+                charName.text = "NARRATOR";
+                charSpeech.text = "You remember how allergic you are to shellfish! Luckily you brought your EpiPEN!!!";
+            }
+            else
+            {
+                charName.text = "NARRATOR";
+                charSpeech.text = "You remember how allergic you are to shellfish! As the crabs threaten and pinch, you recall leaving behind your EpiPEN...";
+                ArtOBJ2.SetActive(true);
+                NextSceneCButton.SetActive(true);
+                nextButton.SetActive(false);
+                allowSpace = false;
+            }
+        }
+        else if (primeInt == 205)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "You use your EpiPEN and make your escape.";
+        }
+        else if (primeInt == 206)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "Reflecting on this close call, you stop to consider your options...";
+            ChoiceBA.SetActive(true);
+            ChoiceBB.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
+        }
+
+
+
+        // Encounter After Choice AA, AB, and BA
+        else if (primeInt == 300)
+        {
+            charName.text = "NARRATOR";
+            charSpeech.text = "You continue walking down the beach...";
+            NextSceneAButton.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
+        }
+
+        // Encounter After Choice BB
+        else if (primeInt == 400)
+        {
+            NextSceneBButton.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
         }
     }
 
-    // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and switch scenes)
-    public void Choice1aFunct()
+
+
+    // Handle Button Choice A Input
+    public void ChoiceAFunct()
     {
-        Char1name.text = "";
-        Char1speech.text = "(You nudge Crispy)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        charName.text = "NARRATOR";
+        charSpeech.text = "You dig Sandy out of his early grave...";
         primeInt = 99;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
-    public void Choice1bFunct()
+
+    // Handle Button Choice B Input
+    public void ChoiceBFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 7)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        charName.text = "NARRATOR";
+        charSpeech.text = "You back away slowly, turn around, and go on your way...";
         primeInt = 199;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
-
+        ArtChar1.SetActive(false);
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
-    public void Choice1cFunct()
+
+
+    // Handle Button Choice AA Input
+    public void ChoiceAAFunct()
     {
-        Char1name.text = "(text here)";
-        Char1speech.text = "(text here 8)";
-        Char2name.text = "";
-        Char2speech.text = "";
+        charName.text = "NARRATOR";
+        charSpeech.text = "You accept the tote from Sandy and continue on your merry way!";
         primeInt = 299;
-        Choice1a.SetActive(false);
-        Choice1b.SetActive(false);
-        Choice1c.SetActive(false);
+        gameHandler.ObtainTote();
+        ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
-    public void SceneChange2a()
+    // Handle Button Choice AB Input
+    public void ChoiceABFunct()
+    {
+        charName.text = "NARRATOR";
+        charSpeech.text = "You think twice before accepting a random bag from a stranger and walk away slowly...";
+        primeInt = 299;
+        ArtChar1.SetActive(false);
+        ArtOBJ1.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+
+
+    // Handle Button Choice BA Input
+    public void ChoiceBAFunct()
+    {
+        charName.text = "NARRATOR";
+        charSpeech.text = "You press on";
+        primeInt = 299;
+        ChoiceBA.SetActive(false);
+        ChoiceBB.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+    // Handle Button Choice BB Input
+    public void ChoiceBBFunct()
+    {
+        charName.text = "NARRATOR";
+        charSpeech.text = "You head back to your stuff";
+        primeInt = 399;
+        ChoiceBA.SetActive(false);
+        ChoiceBB.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+
+
+    // Handle Load Scene A Input
+    public void SceneChangeA()
     {
         SceneManager.LoadScene("S6");
     }
-    public void SceneChange2b()
+
+    // Handle Load Scene B Input
+    public void SceneChangeB()
     {
-        SceneManager.LoadScene("End_LoseCrabSwarm");
+        SceneManager.LoadScene("S2_Stuff");
+    }
+
+    // Handle Load Scene C Input
+    public void SceneChangeC()
+    {
+        SceneManager.LoadScene("End_LoseCrabPinch");
     }
 }

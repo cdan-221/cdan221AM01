@@ -190,13 +190,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BEACH STORY!
+  m_Text: 'SHELLP!
 
 
     The game of shell collection
 
-    by Cailigh, Darron,
-    Luca, and Andrew'
+    by Cailigh, Darron, Luca,
+    and Andrew'
 --- !u!222 &174575023
 CanvasRenderer:
   m_ObjectHideFlags: 0

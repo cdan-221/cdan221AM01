@@ -5,31 +5,76 @@ using UnityEngine.SceneManagement;
 
 public class DialogueGameHandler : MonoBehaviour
 {
+    // Tote Bag
+    public ArrayList tote = new ArrayList();
 
-    public static int playerStat;
-    //public GameObject textGameObject;
+    // Player Stats
+    public bool hasTote = false;
+    public int numShells = 0;
+    public string primaryItem = "";
 
-    //void Start () { UpdateScore (); }
+    // Modify Player Stats
+    public string GetPrimaryItem()
+    {
+        return primaryItem;
+    }
+    public void SetPrimaryItem(string choice)
+    {
+        primaryItem = choice;
+        Debug.Log("Player Chose Primary Item: " + choice);
+    }
 
+    public void ObtainTote()
+    {
+        hasTote = true;
+        Debug.Log("Player Obtained the Tote");
+    }
+
+    public void AddShells(int amount)
+    {
+        numShells += amount;
+        Debug.Log("Player Gained " + amount + " Shells. [Shells: " + numShells + "]");
+    }
+
+    public void AddItemToTote(string itemName)
+    {
+        tote.Add(itemName);
+        Debug.Log("Added " + itemName + " to the Tote");
+    }
+
+    public void RemoveItemFromTote(string itemName)
+    {
+        tote.Remove(itemName);
+        Debug.Log("Removed " + itemName + " from the Tote");
+    }
+
+    public bool IsItemInTote(string itemName)
+    {
+        return tote.Contains(itemName);
+    }
+
+
+
+    // Initialize Player Stats
+    void Start () {
+        tote = new ArrayList();
+        hasTote = false;
+        numShells = 0;
+        primaryItem = "";
+    }
+
+    // Detect Inputs
     void Update()
-    {                // Remove this function when PauseMenu is added
+    {
         if (Input.GetKey("escape"))
         {
-            Application.Quit();
+            QuitGame();
         }
     }
 
-    public void AddPlayerStat(int amount)
-    {
-        playerStat += amount;
-        Debug.Log("Current Player Stat = " + playerStat);
-        //      UpdateScore ();
-    }
 
-    //voidÂ UpdateScore () {
-    //        Text scoreTextB = textGameObject.GetComponent ();
-    //        scoreTextB.text = "Score: " + score; }
 
+    // Game Scene Manager
     public void StartGame()
     {
         SceneManager.LoadScene("S1_Arrival");
