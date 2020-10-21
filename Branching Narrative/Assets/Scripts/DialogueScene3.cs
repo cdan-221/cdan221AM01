@@ -39,10 +39,10 @@ public class DialogueScene3 : MonoBehaviour
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
         dialogue.SetActive(true);
-        Char1name.text = "YOU";
-        Char1speech.text = "Hmm anything over here?";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "Hmm anything over here?";
         NextScene1Button.SetActive(false);
         //NextScene2Button.SetActive(false);
         nextButton.SetActive(true);
@@ -68,34 +68,34 @@ public class DialogueScene3 : MonoBehaviour
         }
         else if (primeInt == 2)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Nope, just a rock";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Nope, just a rock";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 3)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "How about here?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "How about here?";
         }
         else if (primeInt == 4)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Nope, just a dead crab";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Nope, just a dead crab";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 5)
         {
             ArtChar1.SetActive(true);
-            Char1name.text = "YOU";
-            Char1speech.text = "What’s that?! Could I have already found the ‘Golden Shell’?!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "What’s that?! Could I have already found the ‘Golden Shell’?!";
             nextButton.SetActive(false);
             allowSpace = false;
             Choice1a.SetActive(true); // function Choice1aFunct()
@@ -106,10 +106,12 @@ public class DialogueScene3 : MonoBehaviour
         // ENCOUNTER AFTER CHOICE #1
         else if (primeInt == 100)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Sea Chanty Lyrics* *Sea Chanty Lyrics*";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "*singing*\n" +
+                "I'll sing you a song a good song of the sea\n" +
+                "to me waaay HEEEY! Blow the man down...";
             ArtChar1.SetActive(false);
             nextButton.SetActive(true);
             allowSpace = true;
@@ -117,10 +119,10 @@ public class DialogueScene3 : MonoBehaviour
 
         else if (primeInt == 101)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "I hope I find that Golden Shell soon!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "I hope I find that Golden Shell soon!";
             ArtChar1.SetActive(false);
             nextButton.SetActive(false);
             allowSpace = false;
@@ -133,10 +135,10 @@ public class DialogueScene3 : MonoBehaviour
     public void Choice1aFunct()
     {
         gameHandler.AddShells(1);
-        Char1name.text = "YOU";
-        Char1speech.text = "It’s not the Golden Shell but it sure is pretty! I call it a keeper!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "It’s not the Golden Shell but it sure is pretty! I call it a keeper!";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -145,10 +147,10 @@ public class DialogueScene3 : MonoBehaviour
     }
     public void Choice1bFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "Too plain and boring, not worth it. Moving on with the hunt!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "Too plain and boring, not worth it. Moving on with the hunt!";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);

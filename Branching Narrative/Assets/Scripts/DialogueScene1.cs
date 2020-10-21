@@ -16,6 +16,8 @@ public class DialogueScene1 : MonoBehaviour
     public Text Char3speech;
     public GameObject dialogue;
     public GameObject ArtChar1;
+    public GameObject ArtChar2;
+    public GameObject ArtChar3;
     public GameObject ArtBG1;
     public GameObject ArtBG2;
     public GameObject ArtBG3;
@@ -34,7 +36,15 @@ public class DialogueScene1 : MonoBehaviour
     void Start()
     {         // initial visibility settings
         dialogue.SetActive(false);
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "";
+        Char2speech.text = "";
+        Char3name.text = "";
+        Char3speech.text = "";
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
+        ArtChar3.SetActive(false);
         ArtBG1.SetActive(true);
         ArtBG2.SetActive(false);
         ArtBG3.SetActive(false);
@@ -74,38 +84,51 @@ public class DialogueScene1 : MonoBehaviour
             Char1speech.text = "Finally, after a few hours of riding in this bumpy, old bus you've arrived to the beautiful shores of Golden Bay.";
             Char2name.text = "";
             Char2speech.text = "";
+            Char3name.text = "";
+            Char3speech.text = "";
+
         }
         else if (primeInt == 3)
-        {
-            Char1name.text = "YOU";
-            Char1speech.text = "Oh, man. I think my leg fell asleep.";
-            Char2name.text = "";
-            Char2speech.text = "";
-            //gameHandler.AddPlayerStat(1);
-        }
-        else if (primeInt == 4)
-        {
-            Char1name.text = "NARRATOR";
-            Char1speech.text = "Upon stepping off the rickety bus, you give your sleeping leg a good shake. Then, head held high, you look upon the sandy world before you.";
-            Char2name.text = "";
-            Char2speech.text = "";
-        }
-        else if (primeInt == 5)
         {
             ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
-            Char2name.text = "SEAGULL";
-            Char2speech.text = "Shreee!! Craw! Craw! Craw! Craw!";
+            Char2name.text = "YOU";
+            Char2speech.text = "Oh, man. I think my leg fell asleep.";
+            Char3name.text = "";
+            Char3speech.text = "";
+            //gameHandler.AddPlayerStat(1);
+        }
+        else if (primeInt == 4)
+        {
+            ArtChar1.SetActive(false);
+            Char1name.text = "NARRATOR";
+            Char1speech.text = "Upon stepping off the rickety bus, you give your sleeping leg a good shake. Then, head held high, you look upon the sandy world before you.";
+            Char2name.text = "";
+            Char2speech.text = "";
+            Char3name.text = "";
+            Char3speech.text = "";
+        }
+        else if (primeInt == 5)
+        {
+            ArtChar3.SetActive(true);
+            Char1name.text = "";
+            Char2speech.text = "";
+            Char2name.text = "";
+            Char1speech.text = "";
+            Char3name.text = "SEAGULL";
+            Char3speech.text = "Shreee!! Craw! Craw! Craw! Craw!";
             //gameHandler.AddPlayerStat(1);
         }
         else if (primeInt == 6)
         {
-            ArtChar1.SetActive(false);
+            ArtChar3.SetActive(false);
             Char1name.text = "NARRATOR";
             Char1speech.text = "Overhead, the seagulls circle the beach. As annoying as they are, they are a part of the true beach experience.";
             Char2name.text = "";
             Char2speech.text = "";
+            Char3name.text = "";
+            Char3speech.text = "";
         }
         else if (primeInt == 7)
         {
@@ -118,10 +141,10 @@ public class DialogueScene1 : MonoBehaviour
         {
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
-            Char1name.text = "YOU";
-            Char1speech.text = "Where should I sit?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Where should I sit?";
             // Turn off "Next" button, turn on "Choice" buttons
             nextButton.SetActive(false);
             allowSpace = false;
@@ -133,38 +156,38 @@ public class DialogueScene1 : MonoBehaviour
         // ENCOUNTER AFTER CHOICE #1
         else if (primeInt == 100)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "I'll have to indulge in the salty breeze later.. What a beautiful shore.";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "I'll have to indulge in the salty breeze later.. What a beautiful shore.";
             primeInt = 9;
 
         }
 
         else if (primeInt == 200)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Lets... Hope that there isn't a strong breeze anytime soon";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Lets... Hope that there isn't a strong breeze anytime soon";
             primeInt = 9;
         }
 
         else if (primeInt == 300)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Now, this way I don't have to have sand on everything!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Now, this way I don't have to have sand on everything!";
             primeInt = 9;
         }
 
         else if (primeInt == 10)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "But now is not the time to louse around! Lets get shell hunting!";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "But now is not the time to louse around! Lets get shell hunting!";
             nextButton.SetActive(false);
             allowSpace = false;
             NextScene1Button.SetActive(true);

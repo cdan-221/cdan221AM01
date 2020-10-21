@@ -11,6 +11,7 @@ public class DialogueScene4 : MonoBehaviour
     public DialogueGameHandler gameHandler;
     public GameObject dialogue;
     public GameObject ArtChar1;
+    public GameObject ArtChar2;
     public GameObject ArtBG1;
     public GameObject Choice1a;
     public GameObject Choice1b;
@@ -28,6 +29,7 @@ public class DialogueScene4 : MonoBehaviour
         // Game Imagery
         ArtBG1.SetActive(true);
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
         ArtOBJ1.SetActive(false);
         ArtOBJ2.SetActive(false);
 

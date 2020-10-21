@@ -12,8 +12,6 @@ public class DialogueScene2 : MonoBehaviour
     public Text Char1speech;
     public Text Char2name;
     public Text Char2speech;
-    public Text Char3name;
-    public Text Char3speech;
     public GameObject dialogue;
     public GameObject ArtChar1;
     public GameObject ArtObj1;
@@ -62,10 +60,10 @@ public class DialogueScene2 : MonoBehaviour
 
         // Dialogue Initialization
         dialogue.SetActive(true);
-        Char1name.text = "You";
-        Char1speech.text = "I’m ready for some shelling!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "I’m ready for some shelling!";
     }
 
     void Update()
@@ -86,15 +84,15 @@ public class DialogueScene2 : MonoBehaviour
             // AudioSource.Play();
         } else if (primeInt == 2) {
             dialogue.SetActive(true);
-            Char1name.text = "Narrarator";
+            Char1name.text = "NARRATOR";
             Char1speech.text = "After you set your stuff down you start thinking about what you might need to bring down the beach with you";
             Char2name.text = "";
             Char2speech.text = "";
         } else if (primeInt == 3) {
-            Char1name.text = "You";
-            Char1speech.text = "I’m a pretty experienced sheller, so this shouldn’t take too long. Do I need to bring anything with me?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "I’m a pretty experienced sheller, so this shouldn’t take too long. Do I need to bring anything with me?";
             //gameHandler.AddPlayerStat(1);
         } else if (primeInt == 4) {
             ArtBG2.SetActive(false);
@@ -111,10 +109,10 @@ public class DialogueScene2 : MonoBehaviour
             nextButton.SetActive(false);
             allowSpace = false;
         } else if (primeInt == 5) {
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             //gameHandler.AddPlayerStat(1);
         } else if (primeInt == 6) {
             ArtChar1.SetActive(false);
@@ -151,10 +149,10 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             primeInt = 9;
             nextButton.SetActive(false);
             allowSpace = false;
@@ -171,10 +169,10 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             primeInt = 9;
             nextButton.SetActive(false);
             allowSpace = false;
@@ -191,10 +189,10 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             primeInt = 9;
             nextButton.SetActive(false);
             allowSpace = false;
@@ -211,10 +209,10 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             primeInt = 9;
             nextButton.SetActive(false);
             allowSpace = false;
@@ -230,10 +228,10 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
-            Char1name.text = "Player";
-            Char1speech.text = "Im officially ready to go! Should I turn left or right to start?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "YOU";
+            Char2speech.text = "Im officially ready to go! Should I turn left or right to start?";
             primeInt = 9;
             nextButton.SetActive(false);
             allowSpace = false;
@@ -263,9 +261,9 @@ public class DialogueScene2 : MonoBehaviour
     public void Choice1aFunct()
     {
         Char1name.text = "Choice Made: No";
-        Char1speech.text = "Nah, I’m all set. I’ll be back in a jiffy, nothing could go wrong at such a beautiful beach!";
+        Char1speech.text = "";
         Char2name.text = "";
-        Char2speech.text = "";
+        Char2speech.text = "Nah, I’m all set. I’ll be back in a jiffy, nothing could go wrong at such a beautiful beach!";
         primeInt = 99;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -279,9 +277,9 @@ public class DialogueScene2 : MonoBehaviour
     {
         gameHandler.SetPrimaryItem("Hat");
         Char1name.text = "Hat";
-        Char1speech.text = "Well a hat will keep the sun out of my eyes so I can focus on the shells on the sand";
+        Char1speech.text = "";
         Char2name.text = "";
-        Char2speech.text = "";
+        Char2speech.text = "Well a hat will keep the sun out of my eyes so I can focus on the shells on the sand";
         primeInt = 199;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -300,9 +298,9 @@ public class DialogueScene2 : MonoBehaviour
     {
         gameHandler.SetPrimaryItem("EpiPEN");
         Char1name.text = "EpiPen";
-        Char1speech.text = "My doctor said I have to keep this with me at all times, might as well be prepared!";
+        Char1speech.text = "";
         Char2name.text = "";
-        Char2speech.text = "";
+        Char2speech.text = "My doctor said I have to keep this with me at all times, might as well be prepared!";
         primeInt = 299;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -320,9 +318,9 @@ public class DialogueScene2 : MonoBehaviour
     {
         gameHandler.SetPrimaryItem("Sunscreen");
         Char1name.text = "Sunscreen";
-        Char1speech.text = "It’s a pretty bright day. No harm in taking my time shelling & being ready to re-apply";
+        Char1speech.text = "";
         Char2name.text = "";
-        Char2speech.text = "";
+        Char2speech.text = "It’s a pretty bright day. No harm in taking my time shelling & being ready to re-apply";
         primeInt = 399;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -341,9 +339,9 @@ public class DialogueScene2 : MonoBehaviour
     {
         gameHandler.SetPrimaryItem("Sand Pail");
         Char1name.text = "Sand Pail";
-        Char1speech.text = "If I’m going shelling might as well bring something to put them in!";
+        Char1speech.text = "";
         Char2name.text = "";
-        Char2speech.text = "";
+        Char2speech.text = "If I’m going shelling might as well bring something to put them in!";
         primeInt = 499;
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -360,10 +358,10 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice2aFunct() //left click
     {
-        Char1name.text = "You";
-        Char1speech.text = "HERE WE GO!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "HERE WE GO!";
         primeInt = 699;
         ArtBG1.SetActive(false);
         ArtBG2.SetActive(false);
@@ -387,10 +385,10 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice2bFunct() //right click
     {
-        Char1name.text = "You";
-        Char1speech.text = "HERE WE GO!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = "YOU";
+        Char2speech.text = "HERE WE GO!";
         primeInt = 799;
         ArtBG1.SetActive(false);
         ArtBG2.SetActive(false);
