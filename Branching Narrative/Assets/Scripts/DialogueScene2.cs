@@ -18,6 +18,7 @@ public class DialogueScene2 : MonoBehaviour
     public GameObject ArtObj2;
     public GameObject ArtObj3;
     public GameObject ArtObj4;
+    public GameObject ArtObj5;
     public GameObject ArtBG1;
     public GameObject ArtBG2;
     public GameObject ArtBG3;
@@ -43,6 +44,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
         ArtBG1.SetActive(false);
         ArtBG2.SetActive(true);
         ArtBG3.SetActive(false);
@@ -84,6 +86,9 @@ public class DialogueScene2 : MonoBehaviour
             // AudioSource.Play();
         } else if (primeInt == 2) {
             dialogue.SetActive(true);
+            ArtBG1.SetActive(true);
+            ArtBG2.SetActive(false);
+            ArtObj5.SetActive(true);
             Char1name.text = "NARRATOR";
             Char1speech.text = "After you set your stuff down you start thinking about what you might need to bring down the beach with you";
             Char2name.text = "";
@@ -95,8 +100,6 @@ public class DialogueScene2 : MonoBehaviour
             Char2speech.text = "I’m a pretty experienced sheller, so this shouldn’t take too long. Do I need to bring anything with me?";
             //gameHandler.AddPlayerStat(1);
         } else if (primeInt == 4) {
-            ArtBG2.SetActive(false);
-            ArtBG1.SetActive(true);
             Char1name.text = "Player Choice";
             Char1speech.text = "What do you bring?";
             Char2name.text = "";
@@ -109,6 +112,7 @@ public class DialogueScene2 : MonoBehaviour
             nextButton.SetActive(false);
             allowSpace = false;
         } else if (primeInt == 5) {
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -149,6 +153,7 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -169,6 +174,7 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -189,6 +195,7 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -209,6 +216,7 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -228,6 +236,7 @@ public class DialogueScene2 : MonoBehaviour
             ArtObj2.SetActive(false);
             ArtObj3.SetActive(false);
             ArtObj4.SetActive(false);
+            ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -265,6 +274,7 @@ public class DialogueScene2 : MonoBehaviour
         Char2name.text = "";
         Char2speech.text = "Nah, I’m all set. I’ll be back in a jiffy, nothing could go wrong at such a beautiful beach!";
         primeInt = 99;
+        ArtObj5.SetActive(false);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice1c.SetActive(false);
@@ -290,6 +300,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
@@ -311,6 +322,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(true);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
@@ -331,6 +343,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(true);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
@@ -352,6 +365,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(true);
+        ArtObj5.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
     }
@@ -378,6 +392,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
 
         NextScene1Button.SetActive(true);
         allowSpace = true;
@@ -405,6 +420,7 @@ public class DialogueScene2 : MonoBehaviour
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
         ArtObj4.SetActive(false);
+        ArtObj5.SetActive(false);
 
         NextScene1Button.SetActive(true);
         allowSpace = true;

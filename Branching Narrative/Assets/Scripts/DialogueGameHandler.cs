@@ -14,8 +14,8 @@ public class DialogueGameHandler : MonoBehaviour
     public string primaryItem = "";
 
     // Dialog Colors
-    public Dictionary<string, Dictionary<string, string>> characterSettings;
-    public Dictionary<string, Color> colors;
+    public Dictionary<string, Dictionary<string, string>> characterSettings = new Dictionary<string, Dictionary<string, string>>();
+    public Dictionary<string, Color> colors = new Dictionary<string, Color>();
 
     // Modify Player Stats
     public string GetPrimaryItem()
@@ -57,38 +57,33 @@ public class DialogueGameHandler : MonoBehaviour
         return tote.Contains(itemName);
     }
 
-    public void NewCharacterSettings(string charName)
+    public void SetCharacterSetting(string charName, string setting, string value)
     {
-        characterSettings.Add(charName, new Dictionary<string, string>());
-    }
-
-    public bool SetCharacterSetting(string charName, string setting, string value)
-    {
-        if (characterSettings.ContainsKey(charName))
-        {
-            if (characterSettings[charName].ContainsKey(setting))
-            {
-                characterSettings[charName][setting] = value;
-            }
-            else
-            {
-                characterSettings[charName].Add(setting, value);
-            }
-            return true;
-        }
-        return false;
+        if (!characterSettings.ContainsKey(charName)) characterSettings.Add(charName, new Dictionary<string, string>());
+        if (!characterSettings[charName].ContainsKey(setting)) characterSettings[charName].Add(setting, "");
+        characterSettings[charName][setting] = value;
     }
 
     public string GetCharacterSetting(string charName, string setting)
     {
-        if (characterSettings.ContainsKey(charName))
+        try
         {
-            if (characterSettings[charName].ContainsKey(setting))
-            {
-                return characterSettings[charName][setting];
-            }
+            return characterSettings[charName][setting];
         }
-        return "";
+        catch
+        {
+            string characters = "";
+            foreach (string key in characterSettings.Keys)
+            {
+                if (characters.Length > 0)
+                {
+                    characters += ", ";
+                }
+                characters += key;
+            }
+            Debug.Log("could not find setting \"" + setting + "\" for charName \"" + charName + "\" in characterSettings.Keys: [" + characters + "]");
+            return "";
+        }
     }
 
 
@@ -99,6 +94,8 @@ public class DialogueGameHandler : MonoBehaviour
         hasTote = false;
         numShells = 0;
         primaryItem = "";
+        characterSettings = new Dictionary<string, Dictionary<string, string>>();
+        colors = new Dictionary<string, Color>();
         InitSettings();
     }
 
@@ -106,19 +103,11 @@ public class DialogueGameHandler : MonoBehaviour
     public void InitSettings()
     {
         // Colors
-        colors = new Dictionary<string, Color>();
-        colors.Add("black", new Color(0, 0, 0));
-        colors.Add("green", new Color(0, 1, 0));
-        colors.Add("purple", new Color(1, 0, 1));
-        colors.Add("blue", new Color(0, 0, 1));
-        colors.Add("red", new Color(1, 0, 0));
-
-        // Character Settings
-        characterSettings = new Dictionary<string, Dictionary<string, string>>();
-        NewCharacterSettings("YOU");
-        SetCharacterSetting("YOU", "textColor", "black");
-        NewCharacterSettings("NARRATOR");
-        SetCharacterSetting("NARRATOR", "textColor", "purple");
+        if (!colors.ContainsKey("black")) colors.Add("black", new Color(0, 0, 0));
+        if (!colors.ContainsKey("green")) colors.Add("green", new Color(0, 0.3f, 0));
+        if (!colors.ContainsKey("purple")) colors.Add("purple", new Color(0.3f, 0, 0.2f));
+        if (!colors.ContainsKey("blue")) colors.Add("blue", new Color(0, 0, 1f));
+        if (!colors.ContainsKey("red")) colors.Add("red", new Color(1f, 0, 0.1f));
     }
 
     // Detect Inputs

@@ -123,6 +123,7 @@ public class DialogueScene1 : MonoBehaviour
         else if (primeInt == 6)
         {
             ArtChar3.SetActive(false);
+            ArtChar2.SetActive(true);
             Char1name.text = "NARRATOR";
             Char1speech.text = "Overhead, the seagulls circle the beach. As annoying as they are, they are a part of the true beach experience.";
             Char2name.text = "";
@@ -132,6 +133,7 @@ public class DialogueScene1 : MonoBehaviour
         }
         else if (primeInt == 7)
         {
+            ArtChar2.SetActive(false);
             Char1name.text = "NARRATOR";
             Char1speech.text = "Finally, you step your sandle wearing feet upon the scorching sand. Your striped beach bag in tow, its now time for the most important decision of all...";
             Char2name.text = "";

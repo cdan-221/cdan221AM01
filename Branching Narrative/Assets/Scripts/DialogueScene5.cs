@@ -11,9 +11,13 @@ public class DialogueScene5 : MonoBehaviour
     public Text charName;
     public Text charSpeech;
     public GameObject ArtChar1;
+    public GameObject ArtChar2;
+    public GameObject ArtChar3;
     public GameObject ArtBG1;
     public GameObject ArtOBJ1;
     public GameObject ArtOBJ2;
+    public GameObject ArtOBJ3;
+    public GameObject ArtOBJ4;
     public GameObject ChoiceA;
     public GameObject ChoiceB;
     public GameObject ChoiceAA;
@@ -32,8 +36,12 @@ public class DialogueScene5 : MonoBehaviour
         // Game Imagery
         ArtBG1.SetActive(true);
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
+        ArtChar3.SetActive(false);
         ArtOBJ1.SetActive(false);
         ArtOBJ2.SetActive(false);
+        ArtOBJ3.SetActive(false);
+        ArtOBJ4.SetActive(false);
 
         // Dialogue Values
         charName.text = "NARRATOR";
@@ -96,11 +104,13 @@ public class DialogueScene5 : MonoBehaviour
         {
             charName.text = "YOU";
             charSpeech.text = "Do you mean me???";
+            ArtChar3.SetActive(true);
         }
         else if (primeInt == 7)
         {
             charName.text = "SANDY";
             charSpeech.text = "Yeah you! My friends left me for dead here, so will you help me out?";
+            ArtChar3.SetActive(false);
         }
         else if (primeInt == 8)
         {
@@ -119,33 +129,47 @@ public class DialogueScene5 : MonoBehaviour
         {
             charName.text = "SANDY";
             charSpeech.text = "Thank you thank you thank you, I thought I was a goner! I don't know if my friends were even planning to come back...";
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+            ArtChar3.SetActive(false);
         }
 
         else if (primeInt == 101)
         {
             charName.text = "YOU";
             charSpeech.text = "No problem, glad I could help!";
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(true);
         }
 
         else if (primeInt == 102)
         {
             charName.text = "SANDY";
             charSpeech.text = "So what are you up to, it seemed like you were looking for something?";
+            ArtChar2.SetActive(true);
+            ArtChar3.SetActive(false);
+
         }
         else if (primeInt == 103)
         {
             charName.text = "YOU";
             charSpeech.text = "I am! I'm shelling and looking for something special!";
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(true);
         }
         else if (primeInt == 104)
         {
             charName.text = "SANDY";
             charSpeech.text = "Sounds like a whoop. Here, want this old tote bag to carry all those shells in?";
+            ArtChar2.SetActive(true);
+            ArtChar3.SetActive(false);
         }
         else if (primeInt == 105)
         {
             charName.text = "NARRATOR";
             charSpeech.text = "Do you accept the tote from Sandy?";
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(false);
             ArtOBJ1.SetActive(true);
             ChoiceAA.SetActive(true);
             ChoiceAB.SetActive(true);
@@ -158,19 +182,31 @@ public class DialogueScene5 : MonoBehaviour
         {
             charName.text = "SANDY";
             charSpeech.text = "Aww c'mon I'm really stuck!!! ...jerk!";
+            ArtChar1.SetActive(true);
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(false);
         }
         else if (primeInt == 201)
         {
             charName.text = "NARRATOR";
             charSpeech.text = "You go back to shelling merrily, ignoring Sandy's cries for attention";
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(false);
         }
         else if (primeInt == 202)
         {
+            ArtOBJ2.SetActive(false);
+            ArtOBJ3.SetActive(true);
+            ArtOBJ4.SetActive(false);
             charName.text = "NARRATOR";
             charSpeech.text = "As you lose yourself in the wonder of shelling, you hardly notice the crabs beginning to encircle you...";
         }
         else if (primeInt == 203)
         {
+            ArtOBJ2.SetActive(true);
+            ArtOBJ3.SetActive(true);
+            ArtOBJ4.SetActive(true);
             charName.text = "NARRATOR";
             charSpeech.text = "You feel a sudden sting and wince in pain, as you see a swarm of pinching crabs gatherering around you and pinching you!!!";
         }

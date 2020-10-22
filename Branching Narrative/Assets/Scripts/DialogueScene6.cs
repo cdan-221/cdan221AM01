@@ -13,8 +13,10 @@ public class DialogueScene6 : MonoBehaviour
     public GameObject ArtChar1;
     public GameObject ArtChar2;
     public GameObject ArtChar3;
+    public GameObject ArtChar4;
     public GameObject ArtBG1;
     public GameObject ArtOBJ1;
+    public GameObject ArtOBJ2;
     public GameObject ChoiceA;
     public GameObject ChoiceB;
     public GameObject NextSceneAButton;
@@ -30,7 +32,9 @@ public class DialogueScene6 : MonoBehaviour
         ArtChar1.SetActive(false);
         ArtChar2.SetActive(false);
         ArtChar3.SetActive(false);
+        ArtChar4.SetActive(false);
         ArtOBJ1.SetActive(true);
+        ArtOBJ2.SetActive(false);
 
         // Dialogue Values
         charName.text = "NARRATOR";
@@ -83,11 +87,13 @@ public class DialogueScene6 : MonoBehaviour
             charSpeech.text = "Who me?!";
             ArtChar1.SetActive(false);
             ArtChar2.SetActive(false);
+            ArtChar4.SetActive(true);
         }
         else if (primeInt == 5)
         {
             ArtChar2.SetActive(false);
             ArtChar3.SetActive(true);
+            ArtChar4.SetActive(false);
             charName.text = "FRISBEE DUDE 3";
             charSpeech.text = "YES GRAB THE DOG HE HAS OUR FRISBEEEE!";
 
@@ -108,18 +114,22 @@ public class DialogueScene6 : MonoBehaviour
         // Encounter After Choice A
         else if (primeInt == 100)
         {
+            ArtChar4.SetActive(true);
             charName.text = "YOU";
             charSpeech.text = "Here doge, want a treat?!";
         }
 
         else if (primeInt == 101)
         {
+            ArtChar4.SetActive(false);
+            ArtOBJ1.SetActive(true);
             charName.text = "NARRATOR";
             charSpeech.text = "The dog drops the frisbee at your feet";
         }
 
         else if (primeInt == 102)
         {
+            ArtOBJ1.SetActive(false);
             charName.text = "NARRATOR";
             charSpeech.text = "You dig around in your pocket and find an old cheese-it, which you give to the dog";
         }
@@ -141,6 +151,7 @@ public class DialogueScene6 : MonoBehaviour
             charName.text = "YOU";
             charSpeech.text = "well, Im shell hunting and there are all the crabs that seem to just be coming out of nowhere…";
             ArtChar2.SetActive(false);
+            ArtChar4.SetActive(true);
 
         }
         else if (primeInt == 106)
@@ -148,6 +159,7 @@ public class DialogueScene6 : MonoBehaviour
             charName.text = "FRISBEE DUDE 3";
             charSpeech.text = "Sure that’s no problem, we can scare some away for you, they don’t seem to come near us running around with the frisbee!";
             ArtChar3.SetActive(true);
+            ArtChar4.SetActive(false);
         }
         else if (primeInt == 107)
         {
@@ -167,6 +179,7 @@ public class DialogueScene6 : MonoBehaviour
             charName.text = "FRISBEE BRO 1";
             charSpeech.text = "Wow, real nice he was bringing the frisbee to you and you couldn’t just grab it for us? Jerk…";
             ArtChar1.SetActive(true);
+            ArtChar4.SetActive(false);
         }
         else if (primeInt == 201)
         {
@@ -174,6 +187,7 @@ public class DialogueScene6 : MonoBehaviour
             charSpeech.text = "The crab migration is growing bigger and bigger. You can't outrun them...";
             ArtChar1.SetActive(false);
             NextSceneBButton.SetActive(true);
+            ArtOBJ2.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
         }

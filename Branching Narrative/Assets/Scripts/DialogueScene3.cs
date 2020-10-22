@@ -16,6 +16,10 @@ public class DialogueScene3 : MonoBehaviour
     public Text Char3speech;
     public GameObject dialogue;
     public GameObject ArtChar1;
+    public GameObject ArtOBJ1;
+    public GameObject ArtOBJ2;
+    public GameObject ArtOBJ3;
+    public GameObject ArtOBJ4;
     public GameObject ArtBG1;
     public GameObject ArtBG2;
     public GameObject ArtBG3;
@@ -32,7 +36,11 @@ public class DialogueScene3 : MonoBehaviour
     void Start()
     {         // initial visibility settings
         dialogue.SetActive(false);
-        ArtChar1.SetActive(false);
+        ArtChar1.SetActive(true);
+        ArtOBJ1.SetActive(false);
+        ArtOBJ2.SetActive(true);
+        ArtOBJ3.SetActive(false);
+        ArtOBJ4.SetActive(false);
         ArtBG1.SetActive(true);
         ArtBG2.SetActive(false);
         Choice1a.SetActive(false);
@@ -68,6 +76,8 @@ public class DialogueScene3 : MonoBehaviour
         }
         else if (primeInt == 2)
         {
+            ArtOBJ2.SetActive(false);
+            ArtOBJ3.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -76,6 +86,8 @@ public class DialogueScene3 : MonoBehaviour
         }
         else if (primeInt == 3)
         {
+            ArtOBJ2.SetActive(true);
+            ArtOBJ3.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -83,6 +95,8 @@ public class DialogueScene3 : MonoBehaviour
         }
         else if (primeInt == 4)
         {
+            ArtOBJ2.SetActive(false);
+            ArtOBJ4.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -91,13 +105,15 @@ public class DialogueScene3 : MonoBehaviour
         }
         else if (primeInt == 5)
         {
-            ArtChar1.SetActive(true);
+            ArtOBJ4.SetActive(false);
+            ArtOBJ1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
             Char2speech.text = "What’s that?! Could I have already found the ‘Golden Shell’?!";
             nextButton.SetActive(false);
             allowSpace = false;
+            ArtChar1.SetActive(false);
             Choice1a.SetActive(true); // function Choice1aFunct()
             Choice1b.SetActive(true); // function Choice1bFunct()
           
@@ -112,7 +128,7 @@ public class DialogueScene3 : MonoBehaviour
             Char2speech.text = "*singing*\n" +
                 "I'll sing you a song a good song of the sea\n" +
                 "to me waaay HEEEY! Blow the man down...";
-            ArtChar1.SetActive(false);
+            ArtChar1.SetActive(true);
             nextButton.SetActive(true);
             allowSpace = true;
         }
@@ -123,7 +139,7 @@ public class DialogueScene3 : MonoBehaviour
             Char1speech.text = "";
             Char2name.text = "YOU";
             Char2speech.text = "I hope I find that Golden Shell soon!";
-            ArtChar1.SetActive(false);
+            ArtChar1.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
             NextScene1Button.SetActive(true);
@@ -140,6 +156,8 @@ public class DialogueScene3 : MonoBehaviour
         Char2name.text = "YOU";
         Char2speech.text = "It’s not the Golden Shell but it sure is pretty! I call it a keeper!";
         primeInt = 99;
+        ArtOBJ1.SetActive(true);
+        ArtChar1.SetActive(true);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         nextButton.SetActive(true);

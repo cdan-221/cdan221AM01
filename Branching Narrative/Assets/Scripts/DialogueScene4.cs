@@ -12,6 +12,8 @@ public class DialogueScene4 : MonoBehaviour
     public GameObject dialogue;
     public GameObject ArtChar1;
     public GameObject ArtChar2;
+    public GameObject ArtChar3;
+    public GameObject ArtChar4;
     public GameObject ArtBG1;
     public GameObject Choice1a;
     public GameObject Choice1b;
@@ -30,6 +32,8 @@ public class DialogueScene4 : MonoBehaviour
         ArtBG1.SetActive(true);
         ArtChar1.SetActive(false);
         ArtChar2.SetActive(false);
+        ArtChar3.SetActive(false);
+        ArtChar4.SetActive(false);
         ArtOBJ1.SetActive(false);
         ArtOBJ2.SetActive(false);
 
@@ -68,6 +72,7 @@ public class DialogueScene4 : MonoBehaviour
         if (primeInt == 2)
         {
             ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
             charName.text = "YOU";
             charSpeech.text = "What the heck?!";
             nextButton.SetActive(true);
@@ -76,6 +81,7 @@ public class DialogueScene4 : MonoBehaviour
         else if (primeInt == 3)
         {
             ArtChar1.SetActive(true);
+            ArtChar2.SetActive(false);
             charName.text = "CRISPY";
             charSpeech.text = "Z-Z-Z!!!";
             nextButton.SetActive(true);
@@ -84,6 +90,7 @@ public class DialogueScene4 : MonoBehaviour
         else if (primeInt == 4)
         {
             ArtChar1.SetActive(true);
+            ArtChar2.SetActive(true);
             charName.text = "YOU";
             charSpeech.text = "Yikes I don’t think they meant to get that crispy!";
             nextButton.SetActive(true);
@@ -93,6 +100,7 @@ public class DialogueScene4 : MonoBehaviour
         else if (primeInt == 5)
         {
             ArtChar1.SetActive(true);
+            ArtChar2.SetActive(false);
             charName.text = "NARRATOR";
             charSpeech.text = "You approach the snoozing, sunburnt, beach goer, do you help?";
             // Turn off "Next" button, turn on "Choice" buttons
@@ -105,23 +113,32 @@ public class DialogueScene4 : MonoBehaviour
         // Encounter After Choice 1a
         else if (primeInt == 100)
         {
+            ArtChar1.SetActive(true);
+            ArtChar2.SetActive(true);
             charName.text = "YOU";
             charSpeech.text = "Excuse me, are you ok? You were asleep and maybe getting a little extra red!";
         }
 
         else if (primeInt == 101)
         {
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(true);
             charName.text = "CRISPY";
             charSpeech.text = "Ouch!! Thank you for waking me up, this is way too much sun! Good thing you were walking by! Why were you walking by?";
         }
 
         else if (primeInt == 102)
         {
+            ArtChar2.SetActive(true);
+            ArtChar3.SetActive(false);
             charName.text = "YOU";
             charSpeech.text = "I am shelling and heard this beach was a prime spot to find a Golden Shell";
         }
         else if (primeInt == 103)
         {
+            ArtChar2.SetActive(false);
+            ArtChar3.SetActive(true);
             charName.text = "CRISPY";
             charSpeech.text = "Thank you for your help, how ‘bout I join you on your search for a bit? Two sets of eyes are better than one!";
         }
@@ -129,6 +146,8 @@ public class DialogueScene4 : MonoBehaviour
         {
             charName.text = "NARRATOR";
             charSpeech.text = "Accept Crispy's help?";
+            ArtChar3.SetActive(false);
+            ArtChar4.SetActive(true);
             Choice2a.SetActive(true);
             Choice2b.SetActive(true);
             nextButton.SetActive(false);
@@ -147,6 +166,8 @@ public class DialogueScene4 : MonoBehaviour
         // Encounter After Choice 2a
         else if (primeInt == 300)
         {
+            ArtChar4.SetActive(false);
+            ArtChar2.SetActive(false);
             charName.text = "NARRATOR";
             charSpeech.text = "And so they spent hours collecting sea shells...";
         }
@@ -156,11 +177,14 @@ public class DialogueScene4 : MonoBehaviour
             ArtOBJ1.SetActive(true);
             ArtOBJ2.SetActive(true);
             ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
             charName.text = "YOU";
             charSpeech.text = "We found like about tree fiddy shells!";
         }
         else if (primeInt == 302)
         {
+            ArtChar2.SetActive(false);
+            ArtChar4.SetActive(true);
             charName.text = "CRISPY";
             charSpeech.text = "Yeah dude, let's keep lookin'!";
             ArtOBJ1.SetActive(false);
@@ -189,6 +213,7 @@ public class DialogueScene4 : MonoBehaviour
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         nextButton.SetActive(true);
+        ArtChar2.SetActive(false);
         allowSpace = true;
     }
 
@@ -200,6 +225,7 @@ public class DialogueScene4 : MonoBehaviour
         charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 199;
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
         ArtOBJ1.SetActive(true);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -215,6 +241,7 @@ public class DialogueScene4 : MonoBehaviour
         primeInt = 299;
         Choice2a.SetActive(false);
         Choice2b.SetActive(false);
+        ArtChar2.SetActive(true);
         nextButton.SetActive(true);
         allowSpace = true;
     }
@@ -227,6 +254,7 @@ public class DialogueScene4 : MonoBehaviour
         charSpeech.text = "You wander around a bit and find only 1 lame shell...";
         primeInt = 399;
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
         ArtOBJ1.SetActive(true);
         Choice2a.SetActive(false);
         Choice2b.SetActive(false);
