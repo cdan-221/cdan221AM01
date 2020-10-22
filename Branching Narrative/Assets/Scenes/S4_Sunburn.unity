@@ -2095,9 +2095,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Continue Down
-
-    the Beach!'
+  m_Text: "Say Bye &Continue \nDown the Beach!"
 --- !u!222 &1722707252
 CanvasRenderer:
   m_ObjectHideFlags: 0
