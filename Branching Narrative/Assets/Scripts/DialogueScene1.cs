@@ -143,6 +143,7 @@ public class DialogueScene1 : MonoBehaviour
         {
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
+            ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -160,6 +161,7 @@ public class DialogueScene1 : MonoBehaviour
         {
             Char1name.text = "";
             Char1speech.text = "";
+            ArtChar1.SetActive(true);
             Char2name.text = "YOU";
             Char2speech.text = "I'll have to indulge in the salty breeze later.. What a beautiful shore.";
             primeInt = 9;
@@ -168,6 +170,7 @@ public class DialogueScene1 : MonoBehaviour
 
         else if (primeInt == 200)
         {
+            ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -177,6 +180,7 @@ public class DialogueScene1 : MonoBehaviour
 
         else if (primeInt == 300)
         {
+            ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
@@ -186,10 +190,11 @@ public class DialogueScene1 : MonoBehaviour
 
         else if (primeInt == 10)
         {
+            ArtChar1.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
-            Char2speech.text = "But now is not the time to louse around! Lets get shell hunting!";
+            Char2speech.text = "But now is not the time to lounge around! Lets get shell hunting!";
             nextButton.SetActive(false);
             allowSpace = false;
             NextScene1Button.SetActive(true);
@@ -204,6 +209,7 @@ public class DialogueScene1 : MonoBehaviour
         ArtBG3.SetActive(true);
         ArtBG4.SetActive(false);
         ArtBG5.SetActive(false);
+        ArtChar1.SetActive(false);
         Char1name.text = "NARRATOR";
         Char1speech.text = "Naturally, you make your way to the water as any eager beach-goer would. Comfortably you set your things by the ebbing and flowing shore.";
         Char2name.text = "";
@@ -222,6 +228,7 @@ public class DialogueScene1 : MonoBehaviour
         ArtBG3.SetActive(false);
         ArtBG4.SetActive(true);
         ArtBG5.SetActive(false);
+        ArtChar1.SetActive(false);
         Char1name.text = "NARRATOR";
         Char1speech.text = "A most interesting choice. Finding interest in the sandy, drawing hills; your towel fits comfortably at the foot of the nearest one.";
         Char2name.text = "";
@@ -242,6 +249,7 @@ public class DialogueScene1 : MonoBehaviour
         ArtBG3.SetActive(false);
         ArtBG4.SetActive(false);
         ArtBG5.SetActive(true);
+        ArtChar1.SetActive(false);
         Char1name.text = "NARRATOR";
         Char1speech.text = "Why, of course! The rocks are only the most interesting part of every sandy shore. Smack dab in the middle of the biggest rock, your towel rests comfortably on top.";
         Char2name.text = "";

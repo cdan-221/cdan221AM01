@@ -22,10 +22,13 @@ public class DialogueScene8 : MonoBehaviour
     public GameObject ArtOBJ5;
     public GameObject ChoiceA;
     public GameObject ChoiceB;
+    public GameObject ChoiceAA;
+    public GameObject ChoiceAB;
     public GameObject ChoiceBA;
     public GameObject ChoiceBB;
     public GameObject NextSceneAButton;
     public GameObject NextSceneBButton;
+    public GameObject NextSceneCButton;
     public GameObject nextButton;
     private bool allowSpace = true;
 
@@ -43,14 +46,14 @@ public class DialogueScene8 : MonoBehaviour
         ArtOBJ3.SetActive(false);
         ArtOBJ4.SetActive(false);
         ArtOBJ5.SetActive(false);
-        ChoiceA.SetActive(false);
-        ChoiceB.SetActive(false);
-        ChoiceBA.SetActive(false);
-        ChoiceBB.SetActive(false);
 
         // Game Inputs
         ChoiceA.SetActive(false);
         ChoiceB.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
+        ChoiceBA.SetActive(false);
+        ChoiceBB.SetActive(false);
 
         // Dialogue Visibility
         dialogue.SetActive(true);
@@ -58,11 +61,12 @@ public class DialogueScene8 : MonoBehaviour
         // Advance Scene Inputs
         NextSceneAButton.SetActive(false);
         NextSceneBButton.SetActive(false);
+        NextSceneCButton.SetActive(false);
         nextButton.SetActive(true);
         allowSpace = true;
 
         // Start Dialog
-        CharacterSays("PHYLLIS", "Bob! BOB! They're going after the kids sandwiches! BOB!!");
+        CharacterSays("YOU", "Why hello there, are you shelling too?");
     }
 
     // Initialize Settings
@@ -74,9 +78,9 @@ public class DialogueScene8 : MonoBehaviour
         // Initialize Scene Settings
         gameHandler.SetCharacterSetting("YOU", "textColor", "black");
         gameHandler.SetCharacterSetting("NARRATOR", "textColor", "purple");
-        gameHandler.SetCharacterSetting("PHYLLIS", "textColor", "green");
-        gameHandler.SetCharacterSetting("BOB", "textColor", "blue");
-        gameHandler.SetCharacterSetting("CHILDREN", "textColor", "red");
+        gameHandler.SetCharacterSetting("CRUSTACEOLOGIST", "textColor", "green");
+        /*gameHandler.SetCharacterSetting("BOB", "textColor", "blue");
+        gameHandler.SetCharacterSetting("CHILDREN", "textColor", "red");*/
     }
 
     // Have a given character speak a line
@@ -111,19 +115,37 @@ public class DialogueScene8 : MonoBehaviour
         primeInt++;
         if (primeInt == 2)
         {
-            CharacterSays("BOB", "Phyllis they have the chips! You deal with those birds, I’ll deal with these...");
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+            CharacterSays("CRUSTACEOLOGIST", "I am not, I am here on this beautiful beach studying these rare little crabs!");
         }
         else if (primeInt == 3)
         {
-            CharacterSays("CHILDREN", "*kids wailing in lament and panick* \n WAAAA! Our sandwiches!!!");
+            ArtChar1.SetActive(true);
+            ArtChar2.SetActive(false);
+            CharacterSays("YOU", "Yikes, how brave! I keep my distance from shellfish...");
         }
         else if (primeInt == 4)
         {
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+            CharacterSays("CRUSTACEOLOGIST", "They only swarm and attack if aggravated, otherwise they are content to carry on finding food and mates! This is their annual migration!");
+        }
+        else if (primeInt == 5)
+        {
+            ArtChar1.SetActive(true);
+            ArtChar2.SetActive(false);
+            CharacterSays("YOU", "I did not know crabs migrated...");
+        }
+        else if (primeInt == 6)
+        {
+            ArtChar1.SetActive(false);
+            ArtChar2.SetActive(true);
+            CharacterSays("CRUSTACEOLOGIST", "These do! Can you help me count them?");
             ChoiceA.SetActive(true);
             ChoiceB.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
-            CharacterSays("PHYLLIS", "THEY’RE STEALING OUR LUNCH! EXCUSE ME! Can you grab that bag from the birds?!");
         }
 
 
@@ -131,34 +153,15 @@ public class DialogueScene8 : MonoBehaviour
         // Encounter After Choice A
         else if (primeInt == 100)
         {
-            nextButton.SetActive(true);
-            allowSpace = true;
-            CharacterSays("YOU", "Don’t you worry I’m on it!");
-        }
-
-        else if (primeInt == 101)
-        {
-            CharacterSays("NARRATOR", "You run at the seagull waiving your arms to scare them away from the bag of sandwiches");
-        }
-
-        else if (primeInt == 102)
-        {
-            CharacterSays("BOB", "Thank you! These pesky birds, they sure do know how to ruin a nice relaxing moment with the family but I suppose no beach day is complete without them!");
-        }
-        else if (primeInt == 103)
-        {
-            CharacterSays("PHYLLIS", "Kids, help this lovely lunch savior scare off some of these crabs!");
-        }
-        else if (primeInt == 104)
-        {
-            CharacterSays("YOU", "Wow what a bonus! The kids AND the gulls are going after the crabs!");
-        }
-        else if (primeInt == 105)
-        {
-            CharacterSays("NARRATOR", "Thanks to the hard work from the kids, you have a clear path from crabs down the beach!");
-            NextSceneAButton.SetActive(true);
+            ArtOBJ1.SetActive(false);
+            ArtOBJ2.SetActive(false);
+            ArtOBJ3.SetActive(false);
+            ArtChar2.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
+            ChoiceAA.SetActive(true);
+            ChoiceAB.SetActive(true);
+            CharacterSays("CRUSTACEOLOGIST", "Thank you for your help! Would you like my extra boots to protect you from the crabs?");
         }
 
 
@@ -166,20 +169,88 @@ public class DialogueScene8 : MonoBehaviour
         // Encounter After Choice B
         else if (primeInt == 200)
         {
-            CharacterSays("NARRATOR", "Do you go back and help the picnickers, maybe you can team up?");
-            ChoiceBA.SetActive(true);
-            ChoiceBB.SetActive(true);
-            nextButton.SetActive(false);
-            allowSpace = false;
+            if (gameHandler.GetPrimaryItem() == "EpiPEN")
+            {
+                ArtChar1.SetActive(false);
+                ArtOBJ2.SetActive(true);
+                ArtOBJ5.SetActive(true);
+                CharacterSays("NARRATOR", "Oh no you start having an allergic reaction! Where is your EpiPEN?! You reach in your pocket...");
+                nextButton.SetActive(true);
+                allowSpace = true;
+            }
+            else
+            {
+                ArtChar1.SetActive(false);
+                CharacterSays("NARRATOR", "You remember how allergic you are to shellfish! As the crabs threaten and pinch, you recall leaving behind your EpiPEN...");
+                ArtOBJ2.SetActive(true);
+                ArtOBJ5.SetActive(true);
+                NextSceneCButton.SetActive(true);
+                nextButton.SetActive(false);
+                allowSpace = false;
+            }
         }
         else if (primeInt == 201)
         {
-            CharacterSays("NARRATOR", "The crab migration is growing bigger and bigger. You can't outrun them...");
-            charSpeech.text = "";
+            CharacterSays("NARRATOR", "Your EpiPEN comes in handy! You decide to head back to your stuff without your coveted shell...");
+
             NextSceneBButton.SetActive(true);
             nextButton.SetActive(false);
             allowSpace = false;
         }
+
+        // Encounter After Choice AA
+        else if (primeInt == 400)
+        {
+            nextButton.SetActive(true);
+            allowSpace = true;
+            ChoiceAA.SetActive(false);
+            ChoiceAB.SetActive(false);
+            CharacterSays("YOU", "Ah these are just my size. Thank you!");
+        }
+        else if (primeInt == 401)
+        {
+            NextSceneAButton.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
+            CharacterSays("CRUSTACEOLOGIST", "Say, what type of shell did you say you were looking for--I think I might be able to help you find that shell you are looking for. Follow me.");
+        }
+
+        // Encounter After Choice AB
+        else if (primeInt == 500)
+        {
+            ArtOBJ1.SetActive(true);
+            ArtOBJ2.SetActive(true);
+            nextButton.SetActive(true);
+            allowSpace = true;
+            ChoiceAA.SetActive(false);
+            ChoiceAB.SetActive(false);
+            CharacterSays("NARRATOR", "Things are now awkward with the Crustaceologist because you spent a lot of time whining, then rejected the boots, a way to keep yourself safe from the crusty shellfish.");
+        }
+        else if (primeInt == 501)
+        {
+            ArtOBJ3.SetActive(true);
+            CharacterSays("NARRATOR", "You decide you should probably mosey and get on with looking for the Golden Shell. As you start to walk again you find yourself having to leap through swarms of crabs...you start to think 'perhaps those boots would have been helpf--'");
+        }
+        else if (primeInt == 502)
+        {
+            ArtOBJ1.SetActive(false);
+            ArtOBJ2.SetActive(false);
+            ArtOBJ3.SetActive(false);
+            ArtChar1.SetActive(true);
+            CharacterSays("YOU", "YOUCH!!!");
+        }
+        else if (primeInt == 503)
+        {
+            ArtChar1.SetActive(false);
+            ArtOBJ1.SetActive(true);
+            ArtOBJ2.SetActive(true);
+            ArtOBJ3.SetActive(true);
+            NextSceneCButton.SetActive(true);
+            nextButton.SetActive(false);
+            allowSpace = false;
+            CharacterSays("NARRATOR", "Ya. You got pinched. Too bad for that shellfish allergy, you're a goner.");
+        }
+
 
 
 
@@ -205,8 +276,13 @@ public class DialogueScene8 : MonoBehaviour
     // Handle Button Choice A Input
     public void ChoiceAFunct()
     {
-        CharacterSays("NARRATOR", "You decide to help the panicking picnickers recapture their lunch from the seagulls");
+        CharacterSays("NARRATOR", "You decide to help the Crustaceologist count crabs for their study");
         primeInt = 99;
+        ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
+        ArtOBJ1.SetActive(true);
+        ArtOBJ2.SetActive(true);
+        ArtOBJ3.SetActive(true);
         ChoiceA.SetActive(false);
         ChoiceB.SetActive(false);
         nextButton.SetActive(true);
@@ -216,7 +292,12 @@ public class DialogueScene8 : MonoBehaviour
     // Handle Button Choice B Input
     public void ChoiceBFunct()
     {
-        CharacterSays("NARRATOR", "Oh NO! The seagulls start to go after you!");
+        CharacterSays("YOU", "OUCH!");
+        ArtChar1.SetActive(true);
+        ArtChar2.SetActive(false);
+        ArtOBJ1.SetActive(true);
+        ArtOBJ2.SetActive(true);
+        ArtOBJ3.SetActive(true);
         primeInt = 199;
         ChoiceA.SetActive(false);
         ChoiceB.SetActive(false);
@@ -224,10 +305,42 @@ public class DialogueScene8 : MonoBehaviour
         allowSpace = true;
     }
 
+
+    // Handle Button Choice AA Input
+    public void ChoiceAAFunct()
+    {
+        CharacterSays("NARRATOR", "You contain your over excitement and play it cool, and graciously accept the boots as valuable crab armor");
+        primeInt = 399;
+        ArtChar2.SetActive(false);
+        ArtOBJ4.SetActive(true);
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
+    // Handle Button Choice AB Input
+    public void ChoiceABFunct()
+    {
+        CharacterSays("NARRATOR", "You reject the boots");
+        primeInt = 499;
+        ArtChar2.SetActive(false);
+        ArtOBJ1.SetActive(true);
+        ArtOBJ4.SetActive(false);
+        ChoiceA.SetActive(false);
+        ChoiceB.SetActive(false);
+        ChoiceAA.SetActive(false);
+        ChoiceAB.SetActive(false);
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
+
     // Handle Button Choice BA Input
     public void ChoiceBAFunct()
     {
-        CharacterSays("NARRATOR", "That seems like a wise choice");
+        CharacterSays("NARRATOR", "You contain your over excitement and play it cool, and graciously accept the boots!");
         primeInt = 99;
         ChoiceA.SetActive(false);
         ChoiceB.SetActive(false);
@@ -240,7 +353,7 @@ public class DialogueScene8 : MonoBehaviour
     // Handle Button Choice BB Input
     public void ChoiceBBFunct()
     {
-        CharacterSays("NARRATOR", "The crab migration is growing bigger and bigger. You can't outrun them...And now there are seagulls too!");
+        CharacterSays("NARRATOR", "The crab migration is growing bigger and bigger. You can't outrun them...");
         primeInt = 299;
         ChoiceA.SetActive(false);
         ChoiceB.SetActive(false);
@@ -260,5 +373,9 @@ public class DialogueScene8 : MonoBehaviour
     public void SceneChange2b()
     {
         SceneManager.LoadScene("End_LoseCrabSwarm");
+    }
+    public void SceneChangeLoseCrabPinch()
+    {
+        SceneManager.LoadScene("End_LoseCrabPinch");
     }
 }

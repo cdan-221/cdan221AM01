@@ -39,7 +39,7 @@ public class DialogueScene2 : MonoBehaviour
 
     void Start()
     {         // initial visibility settings
-        ArtChar1.SetActive(false);
+        ArtChar1.SetActive(true);
         ArtObj1.SetActive(false);
         ArtObj2.SetActive(false);
         ArtObj3.SetActive(false);
@@ -89,17 +89,20 @@ public class DialogueScene2 : MonoBehaviour
             ArtBG1.SetActive(true);
             ArtBG2.SetActive(false);
             ArtObj5.SetActive(true);
+            ArtChar1.SetActive(false);
             Char1name.text = "NARRATOR";
             Char1speech.text = "After you set your stuff down you start thinking about what you might need to bring down the beach with you";
             Char2name.text = "";
             Char2speech.text = "";
         } else if (primeInt == 3) {
+            ArtChar1.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "YOU";
             Char2speech.text = "I’m a pretty experienced sheller, so this shouldn’t take too long. Do I need to bring anything with me?";
             //gameHandler.AddPlayerStat(1);
         } else if (primeInt == 4) {
+            ArtChar1.SetActive(true);
             Char1name.text = "Player Choice";
             Char1speech.text = "What do you bring?";
             Char2name.text = "";
@@ -112,6 +115,7 @@ public class DialogueScene2 : MonoBehaviour
             nextButton.SetActive(false);
             allowSpace = false;
         } else if (primeInt == 5) {
+            ArtChar1.SetActive(true);
             ArtObj5.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
@@ -145,6 +149,7 @@ public class DialogueScene2 : MonoBehaviour
         }
         // ENCOUNTER AFTER CHOICE #1
         else if (primeInt == 100){
+            ArtChar1.SetActive(true);
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true); ;
             Choice2a.SetActive(true);
@@ -166,6 +171,7 @@ public class DialogueScene2 : MonoBehaviour
 
         else if (primeInt == 200)
         {
+            ArtChar1.SetActive(true);
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
             Choice2a.SetActive(true);
@@ -187,6 +193,7 @@ public class DialogueScene2 : MonoBehaviour
 
         else if (primeInt == 300)
         {
+            ArtChar1.SetActive(true);
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
             Choice2a.SetActive(true);
@@ -208,6 +215,7 @@ public class DialogueScene2 : MonoBehaviour
 
         else if (primeInt == 400)
         {
+            ArtChar1.SetActive(true);
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
             Choice2a.SetActive(true);
@@ -228,6 +236,7 @@ public class DialogueScene2 : MonoBehaviour
         }
         else if (primeInt == 500)
         {
+            ArtChar1.SetActive(true);
             ArtBG1.SetActive(false);
             ArtBG2.SetActive(true);
             Choice2a.SetActive(true);
@@ -372,6 +381,7 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice2aFunct() //left click
     {
+        ArtChar1.SetActive(true);
         Char1name.text = "";
         Char1speech.text = "";
         Char2name.text = "YOU";
@@ -400,6 +410,7 @@ public class DialogueScene2 : MonoBehaviour
 
     public void Choice2bFunct() //right click
     {
+        ArtChar1.SetActive(true);
         Char1name.text = "";
         Char1speech.text = "";
         Char2name.text = "YOU";

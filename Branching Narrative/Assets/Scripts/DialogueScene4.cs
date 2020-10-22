@@ -186,7 +186,7 @@ public class DialogueScene4 : MonoBehaviour
             ArtChar2.SetActive(false);
             ArtChar4.SetActive(true);
             charName.text = "CRISPY";
-            charSpeech.text = "Yeah dude, let's keep lookin'!";
+            charSpeech.text = "This was fun, good luck with the lookin'!";
             ArtOBJ1.SetActive(false);
             ArtOBJ2.SetActive(false);
             NextScene1Button.SetActive(true);
