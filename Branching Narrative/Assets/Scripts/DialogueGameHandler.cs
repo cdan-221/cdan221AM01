@@ -13,6 +13,10 @@ public class DialogueGameHandler : MonoBehaviour
     public int numShells = 0;
     public string primaryItem = "";
 
+    // Dialog Colors
+    public Dictionary<string, Dictionary<string, string>> characterSettings;
+    public Dictionary<string, Color> colors;
+
     // Modify Player Stats
     public string GetPrimaryItem()
     {
@@ -53,6 +57,40 @@ public class DialogueGameHandler : MonoBehaviour
         return tote.Contains(itemName);
     }
 
+    public void NewCharacterSettings(string charName)
+    {
+        characterSettings.Add(charName, new Dictionary<string, string>());
+    }
+
+    public bool SetCharacterSetting(string charName, string setting, string value)
+    {
+        if (characterSettings.ContainsKey(charName))
+        {
+            if (characterSettings[charName].ContainsKey(setting))
+            {
+                characterSettings[charName][setting] = value;
+            }
+            else
+            {
+                characterSettings[charName].Add(setting, value);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public string GetCharacterSetting(string charName, string setting)
+    {
+        if (characterSettings.ContainsKey(charName))
+        {
+            if (characterSettings[charName].ContainsKey(setting))
+            {
+                return characterSettings[charName][setting];
+            }
+        }
+        return "";
+    }
+
 
 
     // Initialize Player Stats
@@ -61,6 +99,26 @@ public class DialogueGameHandler : MonoBehaviour
         hasTote = false;
         numShells = 0;
         primaryItem = "";
+        InitSettings();
+    }
+
+    // Initialize Dialog Settings
+    public void InitSettings()
+    {
+        // Colors
+        colors = new Dictionary<string, Color>();
+        colors.Add("black", new Color(0, 0, 0));
+        colors.Add("green", new Color(0, 1, 0));
+        colors.Add("purple", new Color(1, 0, 1));
+        colors.Add("blue", new Color(0, 0, 1));
+        colors.Add("red", new Color(1, 0, 0));
+
+        // Character Settings
+        characterSettings = new Dictionary<string, Dictionary<string, string>>();
+        NewCharacterSettings("YOU");
+        SetCharacterSetting("YOU", "textColor", "black");
+        NewCharacterSettings("NARRATOR");
+        SetCharacterSetting("NARRATOR", "textColor", "purple");
     }
 
     // Detect Inputs

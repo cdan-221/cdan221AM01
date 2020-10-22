@@ -34,7 +34,7 @@ public class DialogueScene6 : MonoBehaviour
 
         // Dialogue Values
         charName.text = "NARRATOR";
-        charSpeech.text = "As walk down the beach you see a dog sprinting toward you...";
+        charSpeech.text = "As you walk down the beach you see a dog sprinting toward you...";
 
         // Game Inputs
         ChoiceA.SetActive(false);
@@ -164,7 +164,7 @@ public class DialogueScene6 : MonoBehaviour
         // Encounter After Choice B
         else if (primeInt == 200)
         {
-            charName.text = "FRISBEE DUDE 1";
+            charName.text = "FRISBEE BRO 1";
             charSpeech.text = "Wow, real nice he was bringing the frisbee to you and you couldn’t just grab it for us? Jerk…";
             ArtChar1.SetActive(true);
         }
